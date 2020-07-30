@@ -12,5 +12,9 @@ Project Zookeeper will utilize:
 * Javascript
 * HTML5
 * CSS
+####ERD
+![Image of Diagram]
+(https://app.lucidchart.com/publicSegments/view/eda65c11-6083-4b86-913e-3c5608dd87f8/image.png)
+
 
 ###Features
