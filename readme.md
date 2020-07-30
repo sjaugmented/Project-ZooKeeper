@@ -17,3 +17,15 @@ Project Zookeeper will utilize:
 * CSS
 
 ### Features
+
+MVP
+
+[insert ERD]
+
+[insert wireframes]
+
+### Stretch Goals
+
+* implement some kind of User Auth/Login for Keepers
+
+### Screenshots
