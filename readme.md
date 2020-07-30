@@ -18,8 +18,7 @@ Project Zookeeper will utilize:
 
 #### ERD
 
-<"assets/zookeeper.jpeg">
-
+![ERD](assets/zookeeper.jpeg)
 
 ### Features
 
