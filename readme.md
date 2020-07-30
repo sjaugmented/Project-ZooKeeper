@@ -16,4 +16,9 @@ Project Zookeeper will utilize:
 * HTML5
 * CSS
 
+#### ERD
+
+<"assets/zookeeper.jpeg">
+
+
 ### Features
