@@ -20,9 +20,9 @@ Project Zookeeper will utilize:
 
 MVP - The user will have two sections to choose from: ENCLOSURES and ANIMALS.
 
-ENCLOSURES will show a list of all the animal enclosures. Clicking on an enclosure will take the user to its show page where the user will see the relevant data: 
+ENCLOSURES will show a list of all the animal enclosures. Clicking on an enclosure will take the user to its show page where the user will see the relevant data:
 
-* the type of ecosystem 
+* the type of ecosystem
 * a list of the animal occupants (clickable links which will lead to the aninmal's show page)
 * the name of the keeper in charge
 * any observations/notes on the cleaniness and general upkeep of the enclosure.
@@ -43,7 +43,6 @@ And here's a (very) rough mock-up of what the pages will (possibly) look like:
 ![ERD](assets/enclosures.png)
 ![ERD](assets/enclosure_show.png)
 ![ERD](assets/animal_show.png)
-
 
 ### Stretch Goals
 
