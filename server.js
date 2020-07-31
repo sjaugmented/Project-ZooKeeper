@@ -18,5 +18,12 @@ mongoose.connection.on('connected', () => console.log(`Mongoose connected to ${c
 mongoose.connection.on('disconnected', () => console.log('Mongoose disconnected'))
 mongoose.connection.on('error', (err) => console.log('Mongoose error', err))
 
+app.use(express.static ('./' +'/public'))
 
 
+
+// listen
+const PORT = 3000
+app.listen(PORT, () => {
+    console.log('Working on port: ' + PORT)
+})
