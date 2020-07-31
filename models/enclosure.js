@@ -1,5 +1,7 @@
 const mongoose = require('mongoose')
 const Animal = require('./animal')
+const Keeper = require('./keeper')
+const Comment = require('./comment')
 
 const enclosureSchema = new mongoose.Schema({
     name: { type: String, required: true },
