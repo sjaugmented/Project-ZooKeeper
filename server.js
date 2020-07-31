@@ -1,29 +1,12 @@
-// require statements
-const express = require("express")
-const mongoose = require("mongoose")
-const methodOverride = require("method-override")
-const app = express()
+const express = require('express');
+const connectDB = require('./DB/Connection.js')
+const app = express();
 
-// database connection
-const connectionString = 'mongodb://localhost/'
 
-mongoose.connect(connectionString, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-    useFindAndModify: false
-})
-
-mongoose.connection.on('connected', () => console.log(`Mongoose connected to ${connectionString}`))
-mongoose.connection.on('disconnected', () => console.log('Mongoose disconnected'))
-mongoose.connection.on('error', (err) => console.log('Mongoose error', err))
-
+// middleware
 app.use(express.static ('./' +'/public'))
 
+connectDB();
+const Port = process.env.Port || 3000;
 
-
-// listen
-const PORT = 3000
-app.listen(PORT, () => {
-    console.log('Working on port: ' + PORT)
-})
+app.listen(Port, () => console.log('Server started'));
