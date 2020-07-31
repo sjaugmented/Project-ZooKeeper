@@ -40,14 +40,19 @@ The models will be organized as such:
 
 And here's a (very) rough mock-up of what the pages will (possibly) look like:
 
-[insert wireframes]
+![ERD](assets/enclosures.png)
+![ERD](assets/enclosure_show.png)
+![ERD](assets/animal_show.png)
+
 
 ### Stretch Goals
 
 * implement some kind of User Auth/Login for Keepers
-* add a home page with a map of the zoo which displays at-a-glance data when you hover over each section
+* add a home page with an interactive map of the zoo that displays at-a-glance data when you hover over each section
 * more detailed data of each enclosure and animal, linked to the Keeper/User who last edited the page
 * a comprehensive catalog of all edits made to a page
 * a comprehensive catalog of each users comments and links to the relevant pages
 
 ### Screenshots
+
+Coming soon.
