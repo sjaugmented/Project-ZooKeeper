@@ -16,7 +16,8 @@ const animalSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Comment'
     }],
-    currentMeds: [String]
+    currentMeds: [String],
+    img: String
 })
 
 const Animal = mongoose.model('Animal', animalSchema)

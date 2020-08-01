@@ -14,7 +14,8 @@ const enclosureSchema = new mongoose.Schema({
     comments: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Comment'
-    }]
+    }],
+    img: String
 })
 
 const Enclosure = mongoose.model('Enclosure', enclosureSchema)

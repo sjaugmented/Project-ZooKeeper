@@ -5,7 +5,8 @@ const Comment = require('./comment')
 
 const keeperSchema = new mongoose.Schema({
     name: { type: String, required: true },
-    position: String
+    position: String,
+    img: String
 })
 
 const Keeper = mongoose.model('Keeper', keeperSchema)
