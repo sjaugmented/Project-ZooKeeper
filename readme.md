@@ -36,7 +36,7 @@ Similarly, ANIMALS will show a clickable list of the animals by type (or enclosu
 
 The models will be organized as such:
 
-![ERD](assets/zookeeper.jpeg)
+![ERD](assets/erdzookeeper.jpeg)
 
 And here's a (very) rough mock-up of what the pages will (possibly) look like:
 
