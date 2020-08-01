@@ -11,7 +11,7 @@ const enclosureSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Animal'
     }],
-    observations: [{
+    comments: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Comment'
     }]

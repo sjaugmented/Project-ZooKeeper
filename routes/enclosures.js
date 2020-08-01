@@ -6,22 +6,22 @@ const enclosuresController = require('../controllers/enclosures')
 // NEW
 router.get('/new', enclosuresController.new)
 
-// // CREATE
-// router.post('/', enclosuresController.create)
+// CREATE
+router.post('/', enclosuresController.create)
 
-// // INDEX
-// router.get('/', enclosuresController.index)
+// INDEX
+router.get('/', enclosuresController.index)
 
-// // SHOW
-// router.get('/:id', enclosuresController.show)
+// SHOW
+router.get('/:id', enclosuresController.show)
 
-// // DELETE
-// router.delete('/:id', enclosuresController.delete)
+// DELETE
+router.delete('/:id', enclosuresController.delete)
 
-// // EDIT
-// router.get('/:id/edit', enclosuresController.edit)
+// EDIT
+router.get('/:id/edit', enclosuresController.edit)
 
-// // UPDATE
-// router.put('/:id', enclosuresController.update)
+// UPDATE
+router.put('/:id', enclosuresController.update)
 
 module.exports = router
