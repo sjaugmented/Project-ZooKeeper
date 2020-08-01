@@ -15,7 +15,7 @@ connectDB();
 app.use(express.json({ extended: false }));
 
 // TODO: remove?
-//app.use('/controllers/animals', require('./controllers/animals'));
+app.use('/controllers/animals', require('./controllers/animals'));
 
 const enclosuresRouter = require('./routes/enclosures')
 //const animalsRouter = require('./routes/animals')

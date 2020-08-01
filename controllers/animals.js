@@ -1,17 +1,20 @@
-// const express = require('express');
-// const mongoose = require('mongoose');
-// const User = require('../models/Animal');
-// const route = express.Router();
+const express = require('express');
+const mongoose = require('mongoose');
+const Animal = require('../models/Animal');
+const { post } = require('../routes/enclosures');
+const route = express.Router();
 
-// route.post('/', async(req, res) => {
-//     const(keyWhatever, keyMore) = req.body;
-//     let user = {};
-//     user.keyWhatever = keyWhatever;
-//     user.keyMore = keyMore;
-//     let userModel = new User(user);
-//   await userModel.save();
-//     // sends data model as a response
-//     res.json(userModel);
-// });
+route.post('/', async(req, res) => {
+  const {name, comments} = req.body;
+  let obs = {};
+  obs.name = name;
+  obs.comments = comments;
+  let obsModel = new Animal(obs);
+  await obsModel.save();
+  // sends data model as a response
+  res.json(obsModel);
+});
 
-// module.exports = route;
+// post.comments.push({ title: }) ---- work on adding to array in place of above
+ 
+module.exports = route;
