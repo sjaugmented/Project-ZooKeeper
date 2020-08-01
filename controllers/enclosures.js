@@ -31,7 +31,7 @@ const show = async (req, res) => {
     try {
         const foundEnclosure = await Enclosure.findById(req.params.id)
             .populate('animals')
-            .populate('comments')
+            // .populate('comments')
         res.render('enclosures/show.ejs', {
             enclosure: foundEnclosure
         })
@@ -43,12 +43,18 @@ const show = async (req, res) => {
 
 const deleteData = async (req, res) => {
     try {
-        await Enclosure.findByIdAndDelete(req.params.id)
-        res.redirect('/enclosures')
-        
+        const deletedEnclosure = await Enclosure.findByIdAndDelete(req.params.id)
         // what do we do with the animals??? 
         // move them to unspecified enclosure?
         // delete them entirely?
+        Animal.deleteMany({
+            _id: {
+                $in: deletedEnclosure.animals
+            }
+        })
+        
+        //res.redirect('/enclosures')
+        res.render('enclosures/index.ejs')
     
     } catch (err) {
         res.send('Looks like there was a problem...')
@@ -70,7 +76,7 @@ const edit = async (req, res) => {
 
 const update = async (req, res) => {
     try {
-        await Enclosure.findOneAndDelete(req.params.id)
+        await Enclosure.findOneAndUpdate(req.params.id, req.body)
         res.redirect('/enclosures/' + req.params.id)
     } catch (err) {
         res.send('Looks like there was a problem...')
