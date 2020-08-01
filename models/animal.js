@@ -12,7 +12,7 @@ const animalSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "Keeper"
     },
-    lastDiagnosis: [{
+    comments: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Comment'
     }],
