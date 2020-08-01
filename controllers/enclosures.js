@@ -53,8 +53,7 @@ const deleteData = async (req, res) => {
             }
         })
         
-        //res.redirect('/enclosures')
-        res.render('enclosures/index.ejs')
+        res.redirect('/enclosures')
     
     } catch (err) {
         res.send('Looks like there was a problem...')
