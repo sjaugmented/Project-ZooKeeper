@@ -10,10 +10,12 @@
 
     <section class="main">
         <form action="/enclosures/<%= enclosure.id %>?_method=PUT" method="POST">
-            Name: <input type="text" name="name" value="<%= enclosure.name %>" required>
-            Keeper In Charge: <input type="text" name="keeper" value="<%= enclosure.keeper %>" required>
+            Name: <input type="text" name="name" value="<%= enclosure.name %>" required><br>
+            Keeper In Charge: <input type="text" name="keeper" value="<%= enclosure.keeper %>" required><br>
+            Last Checked: <input type="date" name="lastChecked"><br>
+            Comments: <textarea name="comments" cols="30" rows="10"><%= enclosure.comments %></textarea><br>
             <input type="submit" value="Submit Edits">
-        </form>
+        </form><br>
         <form action="/enclosures/<%= enclosure.id %>?_method=DELETE" mthod="POST">
             <input type="submit" value="Remove Enclosure">
         </form>
