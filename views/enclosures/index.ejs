@@ -10,7 +10,9 @@
     <section class="main">
         <ul>
             <% enclosures.forEach(enclosure => { %>
-            <li><h3><%= enclosure.name %> </h3></li>
+            <li>
+                <h3><a href="/enclosures/<%= enclosure.id %>"><%= enclosure.name %></a></h3>
+            </li>
             <li>Occupancy: <%= enclosure.animals.length %></li>
             <% }) %>
         </ul>

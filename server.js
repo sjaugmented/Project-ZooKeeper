@@ -19,19 +19,29 @@ mongoose.connection.on('disconnected', () => console.log('Mongoose disconnected'
 mongoose.connection.on('error', (err) => console.log('Mongoose error:', err))
 
 
+// ATLAS DB CONNECTION
+// connectDB();
+// //returning json data
+// app.use(express.json({ extended: false }));
 
-// middleware
+// // TODO: remove?
+// //app.use('/controllers/animals', require('./controllers/animals'));
+
+
+// MIDDLEWARE
 app.use(express.static('./' + '/public'))
+app.use(express.urlencoded({
+    extended: false
+}))
 app.use(methodOverride('_method'))
 
 
-connectDB();
-//returning json data
-app.use(express.json({ extended: false }));
+// ROOT ROUTE
+app.get('/', async (req, res) => {
+    await res.render('home.ejs')
+})
 
-// TODO: remove?
-//app.use('/controllers/animals', require('./controllers/animals'));
-
+// ROUTERS
 const enclosuresRouter = require('./routes/enclosures')
 //const animalsRouter = require('./routes/animals')
 app.use('/enclosures', enclosuresRouter)

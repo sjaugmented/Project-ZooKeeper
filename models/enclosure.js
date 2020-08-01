@@ -4,17 +4,17 @@ const Keeper = require('./keeper')
 const Comment = require('./comment')
 
 const enclosureSchema = new mongoose.Schema({
-    name: { type: String, required: true },
-    keeper: { type: mongoose.Schema.Types.ObjectId, ref: 'Keeper' },
+    name: {type: String, required: true},
+    keeper: String,
     lastChecked: Date,
     animals: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Animal'
     }],
-    comments: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Comment'
-    }],
+    // comments: [{
+    //     type: mongoose.Schema.Types.ObjectId,
+    //     ref: 'Comment'
+    // }],
     img: String
 })
 
