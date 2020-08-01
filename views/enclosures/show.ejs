@@ -6,6 +6,21 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <h1><%= enclosure.name %> Enclosure</h1>
+    <section class="main">
+    Keeper In Charge: <%= enclosure.keeper %>
+    Occupants: 
+    <ul>
+    <% enclosure.animals.forEach(animal => { %>
+        <li>
+            <a href=""><%= animal.name %></a>
+        </li>
+    <% }) %>
+    </ul>
+    Comments: 
+    </section>
+    <section>
+        <a href="enclosures/<%= enclosure.id %>/edit">Edit Enclosure</a>
+    </section>
 </body>
 </html>

@@ -6,6 +6,16 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <h1>Edit Enclosure: <%= enclosure.name %></h1>
+
+    <section class="main">
+        <form action="/enclosures/<%= enclosure.id %>?_method=PUT" method="POST">
+            Name: <input type="text" name="name" value="<%= enclosure.name %>" required>
+            Keeper In Charge: <input type="text" name="keeper" value="<%= enclosure.keeper %>" required>
+        </form>
+        <form action="/enclosures/<%= enclosure.id %>?_method=DELETE" mthod="POST">
+            <input type="submit" value="Remove Enclosure">
+        </form>
+    </section>
 </body>
 </html>

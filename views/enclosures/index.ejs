@@ -6,6 +6,14 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <h1>Enclosures</h1>
+    <section class="main">
+        <ul>
+            <% enclosures.forEach(enclosure => { %>
+            <li><h3><%= enclosure.name %> </h3></li>
+            <li>Occupancy: <%= enclosure.animals.length %></li>
+            <% }) %>
+        </ul>
+    </section>
 </body>
 </html>
