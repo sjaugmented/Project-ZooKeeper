@@ -4,7 +4,7 @@ const User = require('../models/Animal');
 const route = express.Router();
 
 route.post('/', async(req, res) => {
-    const(keyWhatever, keyMore) = req.body;
+    const (keyWhatever, keyMore) = req.body;
     let user = {};
     user.keyWhatever = keyWhatever;
     user.keyMore = keyMore;
