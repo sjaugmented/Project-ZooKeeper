@@ -18,7 +18,9 @@ const create = async (req, res) => {
 const index = async (req, res) => {
     try {
         const allEnclosures = await Enclosure.find({})
-        res.render('enclosures/index.ejs', {enclosures: allEnclosures})
+        res.render('enclosures/index.ejs', {
+            enclosures: allEnclosures
+        })
     } catch (err) {
         res.send('Looks like there was a problem...')
         console.error(err)
