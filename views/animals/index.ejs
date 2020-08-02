@@ -1,11 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<header>
+			<h1>Animals</h1>
+			<nav>
+				<ul>
+					<li>
+						<a href="/">Home</a>
+					</li>
+					<li>
+						<a href="/animals/new">Add a new Animal to the Zoo</a>
+					</li>
+				</ul>
+			</nav>
+		</header>
+	</body>
+	<main>
+		<h2>List of Animals</h2>
+		<ul>
+			<% animals.forEach(animal => { %>
+				<li>
+					<a href="/animals/<%= animal._id %>"><%= animal.title %></a>
+				</li>
+			<% }) %>
+		</ul>
+	</main>
 </html>

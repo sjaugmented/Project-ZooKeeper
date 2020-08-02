@@ -1,11 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<header>
+			<h1><%= animal.title %></h1>
+			<nav>
+				<ul>
+					<li>
+						<a href="/">Home</a>
+					</li>
+					<li>
+						<a href="/animals">List of Animal</a>
+					</li>
+				</ul>
+			</nav>
+		</header>
+		<main>
+			<section>
+				<%= animal.body %>
+			</section>
+			<section>
+				<form action="/animals/<%= animal._id %>?_method=DELETE" method="POST">
+					<input type="submit" value="Delete Animal">
+				</form>
+			</section>
+			<section>
+				<a href="/animals/<%=animal._id%>/edit">Edit</a>
+			</section>
+		</main>
+	</body>
 </html>

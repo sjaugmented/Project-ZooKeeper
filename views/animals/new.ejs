@@ -1,11 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<header>
+			<h1>Add a new Animal to the list</h1>
+			<nav>
+				<ul>
+					<li>
+						<a href="/">Home</a>
+					</li>
+					<li>
+						<a href="/animals">List of Animals</a>
+					</li>
+				</ul>
+			</nav>
+		</header>
+		<main>
+			<form action="/animals" method="post">
+				<input type="text" name="title" required/><br/>
+				<input type="submit" value="Submit"/>
+			</form>
+		</main>
+	</body>
 </html>
