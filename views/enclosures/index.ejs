@@ -11,9 +11,9 @@
         <ul>
             <% enclosures.forEach(enclosure => { %>
             <li>
-                <h4><a href="/enclosures/<%= enclosure.id %>"><%= enclosure.name %></a></h4>
-            </li>
-            <li>Occupancy: <%= enclosure.animals.length %></li>
+                <a href="/enclosures/<%= enclosure.id %>"><%= enclosure.name %></a><br>
+                Occupancy: <%= enclosure.animals.length %>
+            </li><br>
             <% }) %>
         </ul><br>
         <a href="/enclosures/new">Add Enclosure</a>
