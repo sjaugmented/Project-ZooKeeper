@@ -8,14 +8,16 @@ const animalSchema = new mongoose.Schema({
     species: String,
     age: Number,
     lastChecked: Date,
-    lastKeeper: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Keeper"
-    },
-    comments: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Comment'
-    }],
+    lastKeeper: String,
+    // lastKeeper: {
+    //     type: mongoose.Schema.Types.ObjectId,
+    //     ref: "Keeper"
+    // },
+    comments: String,
+    // comments: [{
+    //     type: mongoose.Schema.Types.ObjectId,
+    //     ref: 'Comment'
+    // }],
     currentMeds: [String],
     img: String
 })
