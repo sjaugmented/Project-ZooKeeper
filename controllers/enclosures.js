@@ -75,7 +75,7 @@ const edit = async (req, res) => {
 
 const update = async (req, res) => {
     try {
-        await Enclosure.findOneAndUpdate(req.params.id, req.body)
+        await Enclosure.findByIdAndUpdate(req.params.id, req.body)
         res.redirect('/enclosures/' + req.params.id)
     } catch (err) {
         res.send('Looks like there was a problem...')
