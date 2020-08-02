@@ -1,75 +1,85 @@
-// const express = require('express');
-// const mongoose = require('mongoose');
-// const User = require('../models/Animal');
-// const route = express.Router();
-
-// route.post('/', async(req, res) => {
-//     const(keyWhatever, keyMore) = req.body;
-//     let user = {};
-//     user.keyWhatever = keyWhatever;
-//     user.keyMore = keyMore;
-//     let userModel = new User(user);
-//   await userModel.save();
-//     // sends data model as a response
-//     res.json(userModel);
-// });
-
-// module.exports = route;
+const Animal = require('../models/animal')
+const Enclosure = require('../models/enclosure')
 
 
-// PATH  /animals
-router.get('/', (req, res) => {
-    Animal.find({}, (err, foundAnimals) => {
+
+const newView = (req, res) => {
+    res.render('animals/new.ejs')
+}
+
+const create = async (req, res) => {
+    try {
+        await Animal.create(req.body)
+        res.redirect('/animals')
+    } catch (err) {
+        res.send('Looks like something went wrong...')
+        console.log(err)
+    }
+}
+
+const index = async (req, res) => {
+    try {
+        const foundAnimals = await Animal.find({})
         res.render('animals/index.ejs', {
             animals: foundAnimals
         })
-    })
-})
+    } catch (err) {
+        res.send('Looks like something went wrong...')
+        console.log(err)
+    }
+}
 
-// PATH /animals/new
-router.get('/new', (req, res) => {
-    res.render('animals/new.ejs')
-})
-
-
-// PATH  /animals/:id
-router.get('/:id', (req, res) => {
-    Animal.findById(req.params.id, (err, foundAnimal) => {
+const show = async (req, res) => {
+    try {
+        const foundAnimal = await Animal.findById(req.params.id)
         res.render('animals/show.ejs', {
             animal: foundAnimal
         })
-    })
-})
+    } catch (err) {
+        res.send('Looks like something went wrong...')
+        console.log(err)
+    }
+}
 
-// PATH  /animal/:id/edit
-router.get('/:id/edit', (req, res) => {
-    Animal.findById(req.params.id, (err, foundAnimal) => {
+const deleteData = async (req, res) => {
+    try {
+        await Animal.findByIdAndDelete(req.params.id)
+        res.redirect('/animals')
+    } catch (err) {
+        res.send('Looks like something went wrong...')
+        console.log(err)
+    }
+}
+
+const edit = async (req, res) => {
+    try {
+        const foundAnimal = await Animal.findById(req.params.id)
         res.render('animals/edit.ejs', {
             animal: foundAnimal
         })
-    })
-})
+    } catch (err) {
+        res.send('Looks like something went wrong...')
+        console.log(err)
+    }
+}
 
-// PATH  /animals/:id
-router.delete('/:id', (req, res) => {
-    Animal.findByIdAndDelete(req.params.id, () => {
-        res.redirect('/animals')
-    })
-})
+const update = async (req, res) => {
+    try {
+        await Animal.findByIdAndUpdate(req.params.id, req.body)
+        res.redirect('/animals');
+    } catch (err) {
+        res.send('Looks like something went wrong...')
+        console.log(err)
+    }
+}
 
-// PATH   /animals
-router.post('/', (req, res) => {
-    Animal.create(req.body, (err, createdAnimal) => {
-        if (err) console.log("Error in animal#create", err)
-        res.redirect('/animals')
-    })
-})
 
-// PATH  /animals/:id
-router.put('/:id', (req, res) => {
-	Animal.findByIdAndUpdate(req.params.id, req.body, () => {
-		res.redirect('/animals');
-	})
-})
-
-module.exports = router
+module.exports = {
+    new: newView,
+    create,
+    index,
+    show,
+    delete: deleteData,
+    edit,
+    update
+}
