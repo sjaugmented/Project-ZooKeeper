@@ -1,11 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<header>
+			<h1>Edit <%= animal.title %>'s Info</h1>
+			<nav>
+				<ul>
+					<li>
+						<a href="/">Home</a>
+					</li>
+					<li>
+						<a href="/animals">List of Animals</a>
+					</li>
+				</ul>
+			</nav>
+		</header>
+		<main>
+			<form action="/animals/<%= animal._id %>?_method=PUT" method="post">
+				<input type="text" name="title" value="<%= animal.title %>"/><br/>
+				<textarea name="body"><%= animal.body %></textarea><br/>
+				<input type="submit" value="Update Animal"/>
+			</form>
+		</main>
+	</body>
 </html>
