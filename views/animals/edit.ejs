@@ -20,8 +20,8 @@
 		</header>
 		<main>
 			<form action="/animals/<%= animal._id %>?_method=PUT" method="post">
-				<input type="text" name="title" value="<%= animal.title %>"/><br/>
-				<textarea name="body"><%= animal.body %></textarea><br/>
+				<input type="text" name="name" value="<%= animal.name %>"/><br/>
+				<textarea name="comments"><%= animal.comments %></textarea><br/>
 				<input type="submit" value="Update Animal"/>
 			</form>
 		</main>

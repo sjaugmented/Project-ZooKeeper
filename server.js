@@ -44,9 +44,9 @@ app.get('/', async (req, res) => {
 
 // ROUTERS
 const enclosuresRouter = require('./routes/enclosures')
-//const animalsRouter = require('./routes/animals')
+const animalsRouter = require('./routes/animals')
 app.use('/enclosures', enclosuresRouter)
-//app.use('/animals', animalsRouter)
+app.use('/animals', animalsRouter)
 
 const Port = process.env.Port || 3000;
 
