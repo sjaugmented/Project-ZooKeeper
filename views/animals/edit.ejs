@@ -6,7 +6,7 @@
 	</head>
 	<body>
 		<header>
-			<h1>Edit <%= animal.title %>'s Info</h1>
+			<h1>Edit <%= animal.name %>'s Info</h1>
 			<nav>
 				<ul>
 					<li>
@@ -20,8 +20,9 @@
 		</header>
 		<main>
 			<form action="/animals/<%= animal._id %>?_method=PUT" method="post">
-				<input type="text" name="name" value="<%= animal.name %>"/><br/>
-				<textarea name="comments"><%= animal.comments %></textarea><br/>
+				Name of the Animal: <input type="text" value= "<%= animal.name %>"/><br/>
+				The Animal `s Age: <input type="number" value= "<%= animal.age %>"/><br/>
+				species: <input type="text" name="species" value= "<%= animal.species %>"/><br/>
 				<input type="submit" value="Update Animal"/>
 			</form>
 		</main>

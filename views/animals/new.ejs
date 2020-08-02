@@ -6,6 +6,7 @@
 	</head>
 	<body>
 		<header>
+			<%- include('../partials/header.ejs') %> 
 			<h1>Add a new Animal to the list</h1>
 			<nav>
 				<ul>
@@ -20,7 +21,9 @@
 		</header>
 		<main>
 			<form action="/animals" method="post">
-				<input type="text" name="name" required/><br/>
+				Name of the Animal: <input type="text" name="name" required/><br/>
+				The Animal `s Age: <input type="number" name="age" required/><br/>
+				species: <input type="text" name="species" required/><br/>
 				<input type="submit" value="Submit"/>
 			</form>
 		</main>
