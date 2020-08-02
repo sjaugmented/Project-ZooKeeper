@@ -3,9 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/CSS/style.css">
     <title>Document</title>
 </head>
 <body>
+    <%- include('partials/header.ejs') %>
+    <h1><%= enclosure.name %> Enclosure</h1>
+    <img src="<%= enclosure.img %> " alt="">
+    <section class="main">
+    Keeper In Charge: <%= enclosure.keeper %> <br>
+    Last Checked: <%= enclosure.lastChecked %> <br>
+    Occupants: <br>
+    <ul>
+        <% if (enclosure.animals.length === 0) { %>
+            None
+        <% } else { %> 
+            <% enclosure.animals.forEach(animal => { %>
+            <li>
+                <a href=""><%= animal.name %></a>
+            </li>
+            <% }) %>
+        <% } %> 
+    </ul>
+    Comments: 
     
+    <%= enclosure.comments %>
+    </section><br>
+    <section>
+        <a href="<%= enclosure.id %>/edit">Edit Enclosure</a>
+    </section>
 </body>
 </html>

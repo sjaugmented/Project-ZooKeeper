@@ -3,9 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/CSS/style.css">
     <title>Document</title>
 </head>
 <body>
-    
+    <%- include('partials/header.ejs') %>
+    <h1>New Page</h1>
+    <form class="main" action="/enclosures" method="POST">
+        Name: <input type="text" name="name" required><br>
+        Keeper In Charge: <input type="text" name="keeper" required><br>
+        Date Created: <input type="date" name="lastChecked" required><br>
+        Notes: <textarea name="comments" required></textarea><br>
+        Image src: <input type="url" name="img">
+        <input type="submit" value="Submit">
+    </form>
 </body>
 </html>
