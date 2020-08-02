@@ -11,11 +11,12 @@
         <ul>
             <% enclosures.forEach(enclosure => { %>
             <li>
-                <h3><a href="/enclosures/<%= enclosure.id %>"><%= enclosure.name %></a></h3>
+                <h4><a href="/enclosures/<%= enclosure.id %>"><%= enclosure.name %></a></h4>
             </li>
             <li>Occupancy: <%= enclosure.animals.length %></li>
             <% }) %>
-        </ul>
+        </ul><br>
+        <a href="/enclosures/new">Add Enclosure</a>
     </section>
 </body>
 </html>
