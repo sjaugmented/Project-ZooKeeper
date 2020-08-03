@@ -42,7 +42,7 @@ And here's a (very) rough mock-up of what the pages will (possibly) look like:
 
 ![ERD](assets/enclosures.png)
 ![ERD](assets/enclosure_show.png)
-![ERD](assets/animal_show.png)
+![ERD](assets/zookeeper.png)
 
 ### Stretch Goals
 
