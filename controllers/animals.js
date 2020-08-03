@@ -1,13 +1,18 @@
 const Animal = require('../models/animal')
 const Enclosure = require('../models/enclosure')
 
-
-
-const newView = (req, res) => {
+const newView = async (req, res) => {
     if (req.session.loggedIn) {
-        res.render('animals/new.ejs', {
-            user: req.session
-        })
+        try {
+            const allEnclosures = await Enclosure.find({})
+            res.render('animals/new.ejs', {
+                enclosures: allEnclosures,
+                user: req.session
+            })
+        } catch (err) {
+            res.send('Looks like something went wrong...')
+            console.error(err)
+        }
     } else {
         res.redirect('/')
     }
@@ -16,11 +21,14 @@ const newView = (req, res) => {
 const create = async (req, res) => {
     if (req.session.loggedIn) {
         try {
-            await Animal.create(req.body)
+            const createdAnimal = await Animal.create(req.body)
+            const foundEnclosure = await Enclosure.findById(req.body.enclosureId)
+            foundEnclosure.animals.push(createdAnimal)
+            foundEnclosure.save()
             res.redirect('/animals')
         } catch (err) {
             res.send('Looks like something went wrong...')
-            console.log(err)
+            console.error(err)
         }
     } else {
         res.redirect('/')
@@ -79,8 +87,10 @@ const edit = async (req, res) => {
     if (req.session.loggedIn) {
         try {
             const foundAnimal = await Animal.findById(req.params.id)
+            const allEnclosures = await Enclosure.find({})
             res.render('animals/edit.ejs', {
                 animal: foundAnimal,
+                enclosures: allEnclosures,
                 user: req.session
             })
         } catch (err) {

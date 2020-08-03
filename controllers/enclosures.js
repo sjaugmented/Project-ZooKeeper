@@ -61,7 +61,6 @@ const show = async (req, res) => {
     } else {
         res.redirect('/')
     }
-    
 }
 
 const deleteData = async (req, res) => {
