@@ -86,11 +86,14 @@ const deleteData = async (req, res) => {
 const edit = async (req, res) => {
     if (req.session.loggedIn) {
         try {
-            const foundAnimal = await Animal.findById(req.params.id)
             const allEnclosures = await Enclosure.find({})
+            const foundAnimalEnclosure = await Enclosure.findOne({ 'animals': req.params.id })
+                .populate({ path: 'animals', match: { _id: req.params.id } })
+            // const foundAnimal = await Animal.findById(req.params.id)
             res.render('animals/edit.ejs', {
-                animal: foundAnimal,
+                animal: foundAnimalEnclosure.animals[0],
                 enclosures: allEnclosures,
+                animalEnclosure: foundAnimalEnclosure,
                 user: req.session
             })
         } catch (err) {
@@ -105,8 +108,20 @@ const edit = async (req, res) => {
 const update = async (req, res) => {
     if (req.session.loggedIn) {
         try {
-            await Animal.findByIdAndUpdate(req.params.id, req.body)
-            res.redirect('/animals')
+            const updatedAnimal = await Animal.findByIdAndUpdate(req.params.id, req.body, { new: true })
+            const foundEnclosure = await Enclosure.findOne({ 'animals': req.params.id })
+            if (foundEnclosure._id.toString() !== req.body.enclosureId) {
+                foundEnclosure.animals.remove(req.params.id)
+                foundEnclosure.save()
+                
+                const newEnclosure = await Enclosure.findById(req.body.enclosureId)
+                newEnclosure.animals.push(updatedAnimal)
+                newEnclosure.save()
+                res.redirect('/animals/' + req.params.id)
+            }
+            else {
+                res.redirect('/animals' + req.params.id)
+            }
         } catch (err) {
             res.send('Looks like something went wrong...')
             console.log(err)
