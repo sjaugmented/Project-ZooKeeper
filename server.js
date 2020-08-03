@@ -1,7 +1,7 @@
 const express = require('express');
 const connectDB = require('./DB/Connection.js')
 const mongoose = require('mongoose')
-const session = require('session')
+const session = require('express-session')
 const methodOverride = require('method-override')
 const app = express();
 const enclosuresRouter = require('./routes/enclosures')
@@ -47,8 +47,12 @@ app.use(methodOverride('_method'))
 
 
 // ROOT ROUTE
-app.get('/', async (req, res) => {
-    await res.render('home.ejs')
+app.get('/', (req, res) => {
+    if (req.session.loggedIn) {
+        res.render('home.ejs')
+    } else {
+        res.render('login.ejs')
+    }
 })
 
 // ROUTERS
