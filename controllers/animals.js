@@ -4,7 +4,10 @@ const Enclosure = require('../models/enclosure')
 
 
 const newView = (req, res) => {
-    res.render('animals/new.ejs')
+    Enclosure.find({}, (err, foundEnclosures) => {
+    res.render('animals/new.ejs', {
+        enclosures: foundEnclosures
+    })
 }
 
 const create = async (req, res) => {
