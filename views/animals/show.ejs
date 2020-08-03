@@ -6,7 +6,17 @@
 	</head>
 	<body>
 		<header>
-			<h1><%= animal.title %></h1>
+			<%- include('../partials/header.ejs') %> 
+			<h1>The <%= animal.name %> is:</h1>
+			<ul>
+				<li><%= animal.age %></li>
+				<li><%= animal.species %></li>
+				<li><%= animal.lastChecked %></li>
+				<li><%= animal.lastKeeper %></li>
+				<li><%= animal.currentMeds %></li>
+				<li><%= animal.comments %></li>
+				<li><%= animal.img %></li>
+			</ul>
 			<nav>
 				<ul>
 					<li>
