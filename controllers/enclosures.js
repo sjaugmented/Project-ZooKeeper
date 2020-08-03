@@ -67,16 +67,23 @@ const deleteData = async (req, res) => {
     if (req.session.loggedIn) {
         try {
             const deletedEnclosure = await Enclosure.findByIdAndDelete(req.params.id)
-            // what do we do with the animals??? 
-            // move them to unspecified enclosure?
-            // delete them entirely?
-            Animal.deleteMany({
+            await Animal.deleteMany({
                 _id: {
-                    $in: deletedEnclosure.animals
+                $in: deletedEnclosure.animals
                 }
             })
-            
             res.redirect('/enclosures')
+            
+            // attempt at only deleting if animals array is empty
+            // const enclosureToDelete = await Enclosure.findById(req.params.id)
+            //     .populate({ path: 'animals', match: 'any' })
+            // console.log(enclosureToDelete)
+            // if (enclosureToDelete.animals.length > 0) res.redirect('/enclosures/' + req.params.id)
+            // else {
+            //     await Enclosure.findByIdAndDelete(req.params.id)
+            // }
+            
+            // res.redirect('/enclosures')
         
         } catch (err) {
             res.send('Looks like there was a problem...')
