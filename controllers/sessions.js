@@ -11,6 +11,7 @@ const login = (req, res) => {
 const logout = async (req, res) => {
     try {
         await req.session.destroy()
+        res.redirect('/')
     } catch (err) {
         res.send('Looks like there was a problem...')
         console.error(err)
