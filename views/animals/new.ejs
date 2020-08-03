@@ -6,7 +6,7 @@
 	</head>
 	<body>
 		<header>
-			<%- include('../partials/header.ejs') %> 
+			<%- include('../partials/header.ejs', {name: user.username}) %>
 			<h1>Add a new Animal to the list</h1>
 			<nav>
 				<ul>
@@ -21,6 +21,13 @@
 		</header>
 		<main>
 			<form action="/animals" method="post">
+				<select name="enclosureId">
+					<% enclosures.forEach(enclosure => { %>
+						<option value="<%= enclosure._id %>">
+							<%= enclosure.name %>
+						</option>
+					<% }) %>
+				</select><br />
 				Name of the Animal: <input type="text" name="name" required/><br/>
 				The Animal `s Age: <input type="number" name="age" required/><br/>
 				Species: <input type="text" name="species" required/><br/>

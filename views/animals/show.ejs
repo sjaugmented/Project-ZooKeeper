@@ -6,17 +6,17 @@
 	</head>
 	<body>
 		<header>
-			<%- include('../partials/header.ejs') %> 
+			<%- include('../partials/header.ejs', {name: user.username}) %>
 			<h1>The <%= animal.name %> is:</h1>
-			<ul>
-				<li><%= animal.age %></li>
-				<li><%= animal.species %></li>
-				<li><%= animal.lastChecked %></li>
-				<li><%= animal.lastKeeper %></li>
-				<li><%= animal.currentMeds %></li>
-				<li><%= animal.comments %></li>
-				<li><%= animal.img %></li>
-			</ul>
+			
+				<p>Age: <%= animal.age %> (years)</p>
+				<p>Species: <%= animal.species %></p>
+				<p>Last time the animal was checked: <%= animal.lastChecked %></p>
+				<p>Last time the animal was checked by: <%= animal.lastKeeper %></p>
+				<p>Current Medication: <%= animal.currentMeds %></p>
+				<p>Comments: <%= animal.comments %></p>
+				<p><%= animal.img %></p>
+
 			<nav>
 				<ul>
 					<li>
