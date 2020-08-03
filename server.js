@@ -49,7 +49,9 @@ app.use(methodOverride('_method'))
 // ROOT ROUTE
 app.get('/', (req, res) => {
     if (req.session.loggedIn) {
-        res.render('home.ejs')
+        res.render('home.ejs', {
+            user: req.session
+        })
     } else {
         res.render('login.ejs')
     }
