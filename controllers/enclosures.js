@@ -1,5 +1,6 @@
 const Enclosure = require('../models/enclosure')
 const Animal = require('../models/animal') // in case we decide to delete animals when enclosures are deleted
+const { post } = require('./animals')
 
 const newView = (req, res) => {
     res.render('enclosures/new.ejs')
@@ -39,6 +40,10 @@ const show = async (req, res) => {
         res.send('Looks like there was a problem...')
         console.error(err)
     }
+    post.animal.id(data).remove();
+    post.save(function (err) {
+    // embedded Animal with id `data` removed! ????
+    });
 }
 
 const deleteData = async (req, res) => {
