@@ -21,6 +21,16 @@
 		</header>
 		<main>
 			<form action="/animals" method="post">
+				<select name="enclosureId">
+					<% enclosures.forEach(enclosure => { %>
+						<option value="<%= enclosure._id %>">
+							<%= enclosure.name %>
+						</option>
+					<% }) %>
+				</select><br />
+				<input type="text" name="name" required/><br/>
+				
+				<input type="submit" value="Add Animal"/>
 				Name of the Animal: <input type="text" name="name" required/><br/>
 				The Animal `s Age: <input type="number" name="age" required/><br/>
 				Species: <input type="text" name="species" required/><br/>
