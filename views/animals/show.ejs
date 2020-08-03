@@ -7,15 +7,17 @@
 	<body>
 		<header>
 			<%- include('../partials/header.ejs', {name: user.username}) %>
-			<h1>The <%= animal.name %> is:</h1>
+			<h1><%= animal.name %> is currently in the <a href="/enclosures/<%= enclosure.id %>"><%= enclosure.name %> Enclosure</a></h1>
+			<div class="animal-img">
+				<img src="<%= animal.img %>" alt="<%= animal.name %> ">
+			</div>
 			<ul>
-				<li><%= animal.age %></li>
-				<li><%= animal.species %></li>
-				<li><%= animal.lastChecked %></li>
-				<li><%= animal.lastKeeper %></li>
-				<li><%= animal.currentMeds %></li>
-				<li><%= animal.comments %></li>
-				<li><%= animal.img %></li>
+				<li>Age: <%= animal.age %></li>
+				<li>Species: <%= animal.species %></li>
+				<li>Last Check-Up: <%= animal.lastChecked %></li>
+				<li>By: <%= animal.lastKeeper %></li>
+				<li>Current Meds: <%= animal.currentMeds %></li>
+				<li>Last Diagnosis: <%= animal.comments %></li>
 			</ul>
 			<nav>
 				<ul>

@@ -9,7 +9,8 @@
 <body>
     <%- include('../partials/header.ejs', {name: user.username}) %>
     <h1><%= enclosure.name %> Enclosure</h1>
-    <img src="<%= enclosure.img %> " alt="">
+    <a href="/animals/new">Add Animal</a><br>
+    <img src="<%= enclosure.img %> " alt=""><br>
     <section class="main">
     Keeper In Charge: <%= enclosure.keeper %> <br>
     Last Checked: <%= enclosure.lastChecked %> <br>
