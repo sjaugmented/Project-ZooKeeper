@@ -10,3 +10,5 @@ router.post('/login', sessionsController.login)
 
 // DESTROY
 router.get('/logout', sessionsController.logout)
+
+module.exports = router

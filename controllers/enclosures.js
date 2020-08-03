@@ -16,15 +16,21 @@ const create = async (req, res) => {
 }
 
 const index = async (req, res) => {
-    try {
-        const allEnclosures = await Enclosure.find({})
-        res.render('enclosures/index.ejs', {
-            enclosures: allEnclosures
-        })
-    } catch (err) {
-        res.send('Looks like there was a problem...')
-        console.error(err)
+    if (req.session.loggedIn) {
+        try {
+            const allEnclosures = await Enclosure.find({})
+            res.render('enclosures/index.ejs', {
+                enclosures: allEnclosures,
+                user: req.session
+            })
+        } catch (err) {
+            res.send('Looks like there was a problem...')
+            console.error(err)
+        }
+    } else {
+        res.redirect('/')
     }
+    
 }
 
 const show = async (req, res) => {
