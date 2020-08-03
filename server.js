@@ -1,8 +1,12 @@
 const express = require('express');
 const connectDB = require('./DB/Connection.js')
 const mongoose = require('mongoose')
-const app = express();
+const session = require('express-session')
 const methodOverride = require('method-override')
+const app = express();
+const enclosuresRouter = require('./routes/enclosures')
+const animalsRouter = require('./routes/animals')
+const sessionsRouter = require('./routes/sessions')
 
 // LOCAL DB CONNECTION
 const connectionString = 'mongodb://localhost/zookeeper'
@@ -30,6 +34,11 @@ mongoose.connection.on('error', (err) => console.log('Mongoose error:', err))
 
 
 // MIDDLEWARE
+app.use(session({
+    secret: "epsteinHangedHimself",
+    resave: false,
+    saveUninitialized: false
+}))
 app.use(express.static('./' + '/public'))
 app.use(express.urlencoded({
     extended: false
@@ -38,13 +47,18 @@ app.use(methodOverride('_method'))
 
 
 // ROOT ROUTE
-app.get('/', async (req, res) => {
-    await res.render('home.ejs')
+app.get('/', (req, res) => {
+    if (req.session.loggedIn) {
+        res.render('home.ejs', {
+            user: req.session
+        })
+    } else {
+        res.render('login.ejs')
+    }
 })
 
 // ROUTERS
-const enclosuresRouter = require('./routes/enclosures')
-const animalsRouter = require('./routes/animals')
+app.use('/', sessionsRouter)
 app.use('/enclosures', enclosuresRouter)
 app.use('/animals', animalsRouter)
 
