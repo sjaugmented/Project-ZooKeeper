@@ -7,16 +7,18 @@
 	<body>
 		<header>
 			<%- include('../partials/header.ejs', {name: user.username}) %>
-			<h1>The <%= animal.name %> is:</h1>
-			
-				<p>Age: <%= animal.age %> (years)</p>
-				<p>Species: <%= animal.species %></p>
-				<p>Last time the animal was checked: <%= animal.lastChecked %></p>
-				<p>Last time the animal was checked by: <%= animal.lastKeeper %></p>
-				<p>Current Medication: <%= animal.currentMeds %></p>
-				<p>Comments: <%= animal.comments %></p>
-				<p><%= animal.img %></p>
-
+			<h1><%= animal.name %> is currently in the <a href="/enclosures/<%= enclosure.id %>"><%= enclosure.name %> Enclosure</a></h1>
+			<div class="animal-img">
+				<img src="<%= animal.img %>" alt="<%= animal.name %> ">
+			</div>
+			<ul>
+				<li>Age: <%= animal.age %></li>
+				<li>Species: <%= animal.species %></li>
+				<li>Last Check-Up: <%= animal.lastChecked %></li>
+				<li>By: <%= animal.lastKeeper %></li>
+				<li>Current Meds: <%= animal.currentMeds %></li>
+				<li>Last Diagnosis: <%= animal.comments %></li>
+			</ul>
 			<nav>
 				<ul>
 					<li>

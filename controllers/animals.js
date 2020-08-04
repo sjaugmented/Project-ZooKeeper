@@ -55,9 +55,12 @@ const index = async (req, res) => {
 const show = async (req, res) => {
     if (req.session.loggedIn) {
         try {
-            const foundAnimal = await Animal.findById(req.params.id)
+            const foundEnclosure = await Enclosure.findOne({ 'animals': req.params.id })
+                .populate({ path: 'animals', match: { _id: req.params.id } })
+            
             res.render('animals/show.ejs', {
-                animal: foundAnimal,
+                enclosure: foundEnclosure,
+                animal: foundEnclosure.animals[0],
                 user: req.session
             })
         } catch (err) {
@@ -72,7 +75,10 @@ const show = async (req, res) => {
 const deleteData = async (req, res) => {
     if (req.session.loggedIn) {
         try {
-            await Animal.findByIdAndDelete(req.params.id)
+            const deletedAnimal = await Animal.findByIdAndDelete(req.params.id)
+            const foundEnclosure = await Enclosure.findOne({ 'animals': req.params.id })
+            await foundEnclosure.animals.remove(req.params.id)
+            await foundEnclosure.save()
             res.redirect('/animals')
         } catch (err) {
             res.send('Looks like something went wrong...')
