@@ -22,10 +22,16 @@ const create = async (req, res) => {
     if (req.session.loggedIn) {
         try {
             const createdAnimal = await Animal.create(req.body)
-            const foundEnclosure = await Enclosure.findById(req.body.enclosureId)
-            foundEnclosure.animals.push(createdAnimal)
-            foundEnclosure.save()
-            res.redirect('/animals')
+            console.log(req.body.enclosureId)
+            if (req.body.enclosureId) {
+                const foundEnclosure = await Enclosure.findById(req.body.enclosureId)
+                foundEnclosure.animals.push(createdAnimal)
+                foundEnclosure.save()
+                res.redirect('/animals')
+            } else {
+                res.redirect('/animals')
+            }
+            
         } catch (err) {
             res.send('Looks like something went wrong...')
             console.error(err)
@@ -39,7 +45,7 @@ const index = async (req, res) => {
     if (req.session.loggedIn) {
         try {
             const foundAnimals = await Animal.find({})
-            res.render('animals/index', {
+            res.render('animals/index.ejs', {
                 animals: foundAnimals,
                 user: req.session
             })
