@@ -112,7 +112,6 @@ const edit = async (req, res) => {
     if (req.session.loggedIn) {
         try {
             const allEnclosures = await Enclosure.find({})
-            console.log(allEnclosures)
             const foundAnimalEnclosure = await Enclosure.findOne({ 'animals': req.params.id })
                 .populate({ path: 'animals', match: { _id: req.params.id } })
             if (foundAnimalEnclosure) {
