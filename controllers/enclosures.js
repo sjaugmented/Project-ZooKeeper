@@ -66,25 +66,15 @@ const show = async (req, res) => {
 const deleteData = async (req, res) => {
     if (req.session.loggedIn) {
         try {
-            const deletedEnclosure = await Enclosure.findByIdAndDelete(req.params.id)
-            await Animal.deleteMany({
-                _id: {
-                $in: deletedEnclosure.animals
-                }
-            })
-            res.redirect('/enclosures')
-            
             // attempt at only deleting if animals array is empty
-            // const enclosureToDelete = await Enclosure.findById(req.params.id)
-            //     .populate({ path: 'animals', match: 'any' })
-            // console.log(enclosureToDelete)
-            // if (enclosureToDelete.animals.length > 0) res.redirect('/enclosures/' + req.params.id)
-            // else {
-            //     await Enclosure.findByIdAndDelete(req.params.id)
-            // }
-            
-            // res.redirect('/enclosures')
-        
+            const enclosureToDelete = await Enclosure.findById(req.params.id)
+            enclosureToDelete.populate({ path: 'animals', match: 'any' })
+            // TODO: redirect to page/pop-up explaining you cannot delete if enclosure is not empty
+            if (enclosureToDelete.animals.length > 0) res.redirect('/enclosures/' + req.params.id)
+            else {
+                await Enclosure.findByIdAndDelete(req.params.id)
+                res.redirect('/enclosures')
+            }        
         } catch (err) {
             res.send('Looks like there was a problem...')
             console.error(err)
