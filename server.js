@@ -2,6 +2,7 @@ const express = require('express');
 const connectDB = require('./DB/Connection.js')
 const mongoose = require('mongoose')
 const session = require('express-session')
+const ejsLayouts = require('express-ejs-layouts')
 const methodOverride = require('method-override')
 const app = express();
 const enclosuresRouter = require('./routes/enclosures')
@@ -45,12 +46,12 @@ app.use(express.urlencoded({
 }))
 app.use(methodOverride('_method'))
 app.set('view engine', 'ejs');
-
+app.use(ejsLayouts)
 
 // ROOT ROUTE
 app.get('/', (req, res) => {
     if (req.session.loggedIn) {
-        res.render('home.ejs', {
+        res.render('home', {
             user: req.session
         })
     } else {
