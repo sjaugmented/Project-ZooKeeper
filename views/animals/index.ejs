@@ -1,25 +1,25 @@
 
-		<header>
-			<%- include('../partials/header.ejs', {name: user.username}) %>
-			<h1>Animals</h1>
-			<nav>
-				<ul>
-					<li>
-						<a href="/">Home</a>
-					</li>
-					<li>
-						<a href="/animals/new">Add a new Animal to the Zoo</a>
-					</li>
-				</ul>
-			</nav>
-		</header>
-	<main>
-		<h2>List of Animals</h2>
+<header>
+	<%- include('../partials/header.ejs', {name: user.username}) %>
+	<h1>Animals</h1>
+	<nav>
 		<ul>
-			<% animals.forEach(animal => { %>
-				<li>
-					<a href="/animals/<%= animal._id %>"><%= animal.name %></a>
-				</li>
-			<% }) %>
+			<li>
+				<a href="/">Home</a>
+			</li>
+			<li>
+				<a href="/animals/new">Add a new Animal to the Zoo</a>
+			</li>
 		</ul>
-	</main>
+	</nav>
+</header>
+<main>
+	<h2>List of Animals</h2>
+	<ul>
+		<% animals.forEach(animal => { %>
+			<li>
+				<a href="/animals/<%= animal._id %>"><%= animal.name %></a>
+			</li>
+		<% }) %>
+	</ul>
+</main>
