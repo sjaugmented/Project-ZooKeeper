@@ -3,7 +3,7 @@ const Animal = require('../models/animal') // in case we decide to delete animal
 
 const newView = (req, res) => {
     if (req.session.loggedIn) {
-        res.render('enclosures/new.ejs', {
+        res.render('enclosures/new', {
             user: req.session
         })
     } else {
@@ -50,7 +50,7 @@ const show = async (req, res) => {
             const foundEnclosure = await Enclosure.findById(req.params.id)
                 .populate('animals')
             // .populate('comments')
-            res.render('enclosures/show.ejs', {
+            res.render('enclosures/show', {
                 enclosure: foundEnclosure,
                 user: req.session
             })
@@ -88,7 +88,7 @@ const edit = async (req, res) => {
     if (req.session.loggedIn) {
         try {
             const foundEnclosure = await Enclosure.findById(req.params.id)
-            res.render('enclosures/edit.ejs', {
+            res.render('enclosures/edit', {
                 enclosure: foundEnclosure,
                 user: req.session
             })
