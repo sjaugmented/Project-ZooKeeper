@@ -39,7 +39,7 @@ const index = async (req, res) => {
     if (req.session.loggedIn) {
         try {
             const foundAnimals = await Animal.find({})
-            res.render('animals/index.ejs', {
+            res.render('animals/index', {
                 animals: foundAnimals,
                 user: req.session
             })
