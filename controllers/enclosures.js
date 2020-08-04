@@ -30,7 +30,7 @@ const index = async (req, res) => {
     if (req.session.loggedIn) {
         try {
             const allEnclosures = await Enclosure.find({})
-            res.render('enclosures/index.ejs', {
+            res.render('enclosures/index', {
                 enclosures: allEnclosures,
                 user: req.session
             })
