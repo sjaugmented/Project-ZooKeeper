@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 //const connectionString = 'mongodb://localhost/zookeeper'
 // ATLAS DB CONNECTION
 const connectionString = 'mongodb+srv://dbUser:dbUser@cluster0.gvtga.mongodb.net/dbUser?retryWrites=true&w=majority'
-
+= process.env.DATABASE_URL ||
 mongoose.connect(connectionString, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
