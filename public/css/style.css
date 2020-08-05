@@ -1,70 +1,59 @@
-/* CSS RESET */
 * {
   margin: 0;
   padding: 0;
+  user-select: none;
   box-sizing: border-box;
-  font-size: 16px;
-  font-family: "Helvetica Neue"; }
+  font-family: 'poppins', sans-serif; }
 
-/* Classes */
 .nav {
-  background-color: blue;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  width: 100vw;
-  filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25)); }
-  .nav a {
-    color: white;
-    text-decoration: none;
-    font-size: 1.5rem;
-    padding: 1.5rem;
-    font-weight: bold; }
-    .nav a:hover {
-      transition: all 0.5s ease-in-out;
-      color: black; }
-  .nav ul {
-    list-style: none;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center; }
-    .nav ul li {
-      padding: 1.5rem; }
+  width: 17vw;
+  height: 32vw;
+  background-color: #1b1b1b;
+  font-size: 30px;
+  filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.5)); }
 
-/* Default Selectors */
-h1, h2, h3 {
-  font-weight: 500; }
+.text {
+  color: white;
+  font-size: 25px;
+  font-weight: 600;
+  line-height: 30px;
+  text-align: center;
+  letter-spacing: 1px; }
 
-a {
-  font-size: 1.5rem; }
-  a:hover {
-    color: black;
-    transition: all 0.5s ease-in-out; }
+div ul li {
+  line-height: 45px;
+  border-bottom: 1px solid red;
+  list-style-type: none; }
 
-header {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  position: relative;
-  top: 100px; }
-  header h1 {
-    margin: 15px;
-    font-size: 2.5rem; }
-  header ul {
-    display: flex;
-    flex-direction: column;
-    align-items: center; }
-    header ul li {
-      padding: 2rem;
-      list-style: none; }
+div ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 25px;
+  font-weight: 500;
+  padding-left: 40px;
+  display: block;
+  border-left: 3px solid transparent; }
 
-main {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center; }
+div ul li a:hover {
+  color: cyan;
+  background: 1e1e1e;
+  border-left-color: cyan;
+  transform: translateY(-10%); }
+
+h2 {
+  font-size: 40px;
+  margin-left: 45px;
+  margin-top: 0px; }
+
+h1 {
+  margin-left: 10px; }
+
+p {
+  font-size: 22px;
+  margin-left: 10px; }
+
+.logo {
+  height: 180px; }
+
+.loginButton {
+  margin-left: 60px; }
