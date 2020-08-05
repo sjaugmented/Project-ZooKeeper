@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "sass": "node-sass public/css/sass -o public/css",
-    "sass-watch": "npm run sass && npm run sass -- -w"
+    "sass-watch": "npm run sass && npm run sass -- -w",
+    "seed": "node seed.js"
   },
   "repository": {
     "type": "git",
