@@ -1,10 +1,10 @@
 const mongoose = require('mongoose')
 
 // LOCAL DB CONNECTION
-//const connectionString = 'mongodb://localhost/zookeeper'
+const connectionString = 'mongodb://localhost/zookeeper'
 // ATLAS DB CONNECTION
-const connectionString = 'mongodb+srv://dbUser:dbUser@cluster0.gvtga.mongodb.net/dbUser?retryWrites=true&w=majority'
-= process.env.DATABASE_URL ||
+// const connectionString = 'mongodb+srv://dbUser:dbUser@cluster0.gvtga.mongodb.net/dbUser?retryWrites=true&w=majority'
+// const connectionString = process.env.DATABASE_URL ||
 mongoose.connect(connectionString, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
