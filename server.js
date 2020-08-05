@@ -28,7 +28,7 @@ app.use(session({
     resave: false,
     saveUninitialized: false
 }))
-app.use(express.static('./' + '/public/'))
+app.use(express.static('public'))
 app.use(express.urlencoded({
     extended: false
 }))
