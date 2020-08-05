@@ -9,19 +9,7 @@ const enclosuresRouter = require('./routes/enclosures')
 const animalsRouter = require('./routes/animals')
 const sessionsRouter = require('./routes/sessions')
 
-// LOCAL DB CONNECTION
-const connectionString = 'mongodb://localhost/zookeeper'
 
-mongoose.connect(connectionString, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-    useFindAndModify: false
-})
-
-mongoose.connection.on('connected', () => console.log(`Mongoose connected to ${connectionString}`))
-mongoose.connection.on('disconnected', () => console.log('Mongoose disconnected'))
-mongoose.connection.on('error', (err) => console.log('Mongoose error:', err))
 
 
 // ATLAS DB CONNECTION
@@ -64,6 +52,7 @@ app.use('/', sessionsRouter)
 app.use('/enclosures', enclosuresRouter)
 app.use('/animals', animalsRouter)
 
-const Port = process.env.Port || 3000;
 
-app.listen(Port, () => console.log('Server started'));
+
+const PORT = process.env.Port || 3000;
+app.listen(PORT, () => console.log('Server started'));
