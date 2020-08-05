@@ -1,4 +1,6 @@
+const mongoose = require('mongoose')
 const db = require('./models')
+const animals = require('./controllers/animals')
 
 const enclosures_list = [
     {
@@ -122,9 +124,10 @@ const animals_list = [
     })
 ]
 
-console.log(animals_list) // TODO: remove
+console.log(animals_list.length) // TODO: remove
 
 const seedDb = async () => {
+    console.log('running seedDb')
     try {
         await db.Enclosure.deleteMany({})
         console.log('removed all enclosures')
@@ -134,52 +137,14 @@ const seedDb = async () => {
         
         await db.Animal.deleteMany({})
         console.log('removed all animals')
-        animals_list.forEach(animalData => {
-            const animal = new db.Animal({
-                name: animalData.name,
-                species: animalData.species,
-                age: animalData.age,
-                lastChecked: animalData.lastChecked,
-                comments: animalData.comments,
-                currentMeds: animalData.currentMeds,
-                img: animalData.img
-            })
-            const savedAnimal = animal.save()
-            console.log(`saved ${savedAnimal}`)
-        })
+        const animals = await db.Animal.create(animals_list)
+        console.log('recreated all animals')
+        console.log(`created ${animals.length}`)
     } catch (err) {
         console.error(err)
+    } finally {
+        mongoose.connection.close()
     }
 }
 
-// db.Enclosure.deleteMany({}, (err, authors) => {
-//     if (err) return console.log(err);
-//     console.log('removed all authors');
-//     db.Author.create(authors_list, (err, authors) => {
-//         if (err) return console.log(err);
-//         console.log('recreated all authors');
-//         console.log(`created ${authors.length} authors`);
-//         db.Book.deleteMany({}, (err, books) => {
-//             if (err) return console.log(err);
-//             console.log('removed all books');
-//             books_list.forEach(bookData => {
-//                 const book = new db.Book({
-//                     title: bookData.title,
-//                     image: bookData.image,
-//                     releaseDate: bookData.releaseDate
-//                 });
-//                 db.Author.findOne({
-//                     name: bookData.author
-//                 }, (err, foundAuthor) => {
-//                     console.log(`found author  ${foundAuthor.name} for book ${book.title}`);
-//                     if (err) return console.log(err);
-//                     book.author = foundAuthor;
-//                     book.save((err, savedBook) => {
-//                         if (err) return console.log(err);
-//                         console.log(`saved ${savedBook.title} by ${foundAuthor.name}`);
-//                     });
-//                 });
-//             });
-//         });
-//     });
-// });
+seedDb()
