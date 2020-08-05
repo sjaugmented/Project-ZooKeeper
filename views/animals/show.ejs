@@ -1,11 +1,16 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title></title>
-	</head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/CSS/style.css">
+    <title>Document</title>
 	<body>
 		<header>
+<<<<<<< HEAD
+			
+			<h1><%= animal.name %> is currently in the <a href="/enclosures/<%= enclosure.id %>"><%= enclosure.name %> Enclosure</a></h1>
+=======
 			<%- include('../partials/header.ejs', {name: user.username}) %>
 		</header>
 		<main>
@@ -16,6 +21,7 @@
 					UNASSIGNED
 				<% } %>  
 				 Enclosure</a></h1>
+>>>>>>> submaster
 			<div class="animal-img">
 				<img src="<%= animal.img %>" alt="<%= animal.name %> ">
 			</div>

@@ -1,101 +1,72 @@
 // scss variable
-
-$primaryColor: blue;
-$secondaryColor: black;
-$textOnPrimary: white;
-
-$base-font: 16px;
-$primaryFont: "Helvetica Neue";
-
-// Mixins
-@mixin transition-ease {
-    transition: all 0.5s ease-in-out;
-}
-/* CSS RESET */
+// body{
+//     background-color:white;
+// }
 * {
     margin: 0;
     padding: 0;
+    user-select: none;
     box-sizing: border-box;
-    font-size: $base-font;
-    font-family: $primaryFont;
+    font-family: 'poppins', sans-serif;
 }
-
-/* Classes */
 .nav {
-    background-color: $primaryColor;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    width: 100vw;
-    // 
-    filter: drop-shadow(0 4px 4px rgba(0,0,0,0.25));
-    a {
-        color: $textOnPrimary;
-        text-decoration: none;
-        // 1.5 rem = 1.5 * 16px (base font size)
-        font-size: 1.5rem;
-        padding: 1.5rem;
-        font-weight: bold;
-        &:hover {
-            @include transition-ease;
-            color: $secondaryColor;
-        }
-    }
-    ul {
-        list-style: none;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
-        
-        li {
-            padding: 1.5rem;
-        }
-    }
+    // display: flex;
+    // flex-direction: column;
+    width: 17vw;
+    height: 32vw;
+    background-color: #1b1b1b;
+    font-size: 30px;
+    filter: drop-shadow(0 4px 4px rgba(0,0,0,0.50));
+    
 }
+.text {
+    color: white;
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 30px;
+    text-align: center;
+    letter-spacing: 1px;
+    
 
-/* Default Selectors */
-h1, h2, h3 {
+}
+div ul li {
+    line-height: 45px;
+    border-bottom: 1px solid red;
+    list-style-type: none;
+
+}
+div ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 25px;
     font-weight: 500;
+    padding-left: 40px;
+    display: block;
+    border-left: 3px solid transparent;
 }
-a {
-    font-size: 1.5rem;
-
-    &:hover {
-        color: $secondaryColor;
-        @include transition-ease;
-    }
-}
-
-header {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    position: relative;
-    top: 100px;
-    h1 {
-       margin: 15px;
-       font-size: 2.5rem;
-    }
-
-    ul {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        li {
-            padding: 2rem;
-            list-style: none;
-        }
-    }
+div ul li a:hover {
+    color: cyan;
+    background: 1e1e1e;
+    border-left-color: cyan;
+    transform: translateY(-10%)
 }
 
-main {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
+h2 {
+    font-size: 40px;
+    margin-left: 45px;
+    margin-top: 0px;
+}
+h1 {
+    margin-left: 10px;
+}
+
+p {
+    font-size: 22px;
+    margin-left: 10px;
+}
+.logo {
+    height: 180px;
+}
+.loginButton {
+    margin-left: 60px;
 }
