@@ -9,6 +9,9 @@
 </head>
 <body>
     <%- include('../partials/header.ejs', {name: user.username}) %>
+    <div class="enclosure-img">
+        <img src="<%= enclosure.img %>" alt="<%= enclosure.name %> Enclosure">
+    </div>
     <h1><%= enclosure.name %> Enclosure</h1>
     <a href="/animals/new">Add Animal</a><br>
     <img src="<%= enclosure.img %> " alt=""><br>
