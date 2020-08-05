@@ -142,6 +142,7 @@ const seedDb = async () => {
         const animals = await db.Animal.create(animals_list)
         console.log('recreated all animals')
         console.log(`created ${animals.length} animals`)
+        
         // assign animals based on enclosure index
         const allEnclosures = await db.Enclosure.find({})
         // console.log('allEnclosures:') // TODO: remove
