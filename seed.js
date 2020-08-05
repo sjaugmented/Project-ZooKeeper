@@ -1,6 +1,6 @@
+require('dotenv').config()
 const mongoose = require('mongoose')
 const db = require('./models')
-const animals = require('./controllers/animals')
 
 const enclosures_list = [
     {
@@ -9,63 +9,63 @@ const enclosures_list = [
         "lastChecked": "",
         "animals": [],
         "comments": "",
-        "img": "https://imgur.com/SUhB9xf"
+        "img": "https://i.imgur.com/SUhB9xf.jpg"
     }, {
         "name": "Tigers",
         "keeper": "Worf",
         "lastChecked": "",
         "animals": [],
         "comments": "",
-        "img": "https://imgur.com/vR5Nl9X"
+        "img": "https://i.imgur.com/vR5Nl9X.jpg"
     }, {
         "name": "Bears",
         "keeper": "Will",
         "lastChecked": "",
         "animals": [],
         "comments": "",
-        "img": "https://imgur.com/dl6U8Eb"
+        "img": "https://i.imgur.com/dl6U8Eb.jpg"
     }, {
         "name": "Elephants",
         "keeper": "Data",
         "lastChecked": "",
         "animals": [],
         "comments": "",
-        "img": "https://imgur.com/s8Lgca4"
+        "img": "https://i.imgur.com/s8Lgca4.jpg"
     }, {
         "name": "Wolves",
         "keeper": "Geordi",
         "lastChecked": "",
         "animals": [],
         "comments": "",
-        "img": "https://imgur.com/QYCzdxp"
+        "img": "https://i.imgur.com/QYCzdxp.jpg"
     },  {
         "name": "Reptiles",
         "keeper": "Deanna",
         "lastChecked": "",
         "animals": [],
         "comments": "",
-        "img": "https://imgur.com/Iur6cpI"
+        "img": "https://i.imgur.com/Iur6cpI.jpg"
     },  {
         "name": "Primates",
         "keeper": "Jean-Luc",
         "lastChecked": "",
         "animals": [],
         "comments": "",
-        "img": "https://imgur.com/RxIn1q4"
+        "img": "https://i.imgur.com/RxIn1q4.jpg"
     },  {
         "name": "Birds",
         "keeper": "Wesley",
         "lastChecked": "",
         "animals": [],
         "comments": "",
-        "img": "https://imgur.com/DevN12D"
+        "img": "https://i.imgur.com/DevN12D.jpg"
     }, {
         "name": "Dolphins",
         "keeper": "Geordi",
         "lastChecked": "",
         "animals": [],
         "comments": "",
-        "img": "https://imgur.com/vJPr97h"
+        "img": "https://i.imgur.com/vJPr97h.jpg"
     }   
 ]
 
