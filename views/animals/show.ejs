@@ -7,8 +7,21 @@
     <title>Document</title>
 	<body>
 		<header>
+<<<<<<< HEAD
 			
 			<h1><%= animal.name %> is currently in the <a href="/enclosures/<%= enclosure.id %>"><%= enclosure.name %> Enclosure</a></h1>
+=======
+			<%- include('../partials/header.ejs', {name: user.username}) %>
+		</header>
+		<main>
+			<h1><%= animal.name %> is currently in the
+				<% if (enclosure.id) { %>
+					<a href="/enclosures/<%= enclosure.id %>"><%= enclosure.name %>
+				<% } else { %>
+					UNASSIGNED
+				<% } %>  
+				 Enclosure</a></h1>
+>>>>>>> submaster
 			<div class="animal-img">
 				<img src="<%= animal.img %>" alt="<%= animal.name %> ">
 			</div>
@@ -30,8 +43,6 @@
 					</li>
 				</ul>
 			</nav>
-		</header>
-		<main>
 			<section>
 				<%= animal.body %>
 			</section>

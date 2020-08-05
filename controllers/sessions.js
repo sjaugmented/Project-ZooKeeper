@@ -1,4 +1,4 @@
-const User = require('../models/user')
+const db = require('../models')
 
 // ROUTES
 // LOGIN
