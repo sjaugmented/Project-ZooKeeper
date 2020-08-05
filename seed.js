@@ -1,4 +1,4 @@
-const db = require('../models')
+const db = require('./models')
 
 const enclosures_list = [
     {
@@ -23,7 +23,7 @@ const enclosures_list = [
         "comments": "",
         "img": ""
     }, {
-        "name": "Cats",
+        "name": "Lions",
         "keeper": "Beverly",
         "lastChecked": "",
         "animals": [],
@@ -31,35 +31,35 @@ const enclosures_list = [
         "img": ""
     }, {
         "name": "Birds",
-        "keeper": "Will",
+        "keeper": "Wesley",
         "lastChecked": "",
         "animals": [],
         "comments": "",
         "img": ""
     }, {
-        "name": "Oceans",
+        "name": "Dolphins",
         "keeper": "Geordi",
         "lastChecked": "",
         "animals": [],
         "comments": "",
         "img": ""
     }, {
-        "name": "Snakes",
-        "keeper": "",
-        "lastChecked": "",
-        "animals": [],
-        "comments": "",
-        "img": ""
-    }, {
-        "name": "Bears",
+        "name": "Tigers",
         "keeper": "Worf",
         "lastChecked": "",
         "animals": [],
         "comments": "",
         "img": ""
     }, {
+        "name": "Bears",
+        "keeper": "Will",
+        "lastChecked": "",
+        "animals": [],
+        "comments": "",
+        "img": ""
+    }, {
         "name": "Wolves",
-        "keeper": "Wesley",
+        "keeper": "Geordi",
         "lastChecked": "",
         "animals": [],
         "comments": "",
@@ -84,9 +84,9 @@ class Animal {
 const lions = ["Simba", "Mufasa", "Scar", "Nala", "Georgia", "Nelly"]
 const elephants = ["Dumbo", "Alto", "Othello", "Clarissa"]
 const wolves = ["Baltar", "Perseus", "Doug", "Malik"]
-const snakes = ["Sheeba", "Milo", "Otis"]
-const geckos = ["Greg", "Sam"]
-const primates = ["Diane", "Tarzan", "Kerchak", "George"]
+const tigers = ["Sheeba", "Milo", "Otis"]
+const geckos = ["Bilbo", "Sam"]
+const primates = ["Jane", "Tarzan", "Kerchak", "George"]
 const birds = ["Tucan", "Sam", "Iago", "Smiley"]
 const dolphins = ["Flipper", "Darwin", "Shimmer", "Dieter"]
 const bears = ["Griz", "Bubba", "Eddie", "Saphron"]
@@ -102,8 +102,8 @@ const animals_list = [
     ...wolves.map(wolf => {
         return new Animal(wolf, 'Wolf', 'Jelani', 'https://img.apmcdn.org/5d713a4d4e43cf212c9a4792aa2f68aa954d1731/square/588c9d-20171019-wolf.jpg')
     }),
-    ...snakes.map(snake => {
-        return new Animal(snake, 'Snake', 'James', 'https://thumbs-prod.si-cdn.com/nGo4Lb3cFOCAKggHb0vYam-M3Cs=/fit-in/1600x0/https://public-media.si-cdn.com/filer/d9/7e/d97eb52e-9985-48f4-b6b8-ae6de46dff00/oo_400559.jpg')
+    ...tigers.map(tiger => {
+        return new Animal(tiger, 'Tiger', 'James', 'https://c402277.ssl.cf1.rackcdn.com/photos/18134/images/priority_species/Medium_WW226365.jpg?1574452099')
     }),
     ...geckos.map(gecko => {
         return new Animal(gecko, 'Gecko', 'Marissa', 'https://www.treehugger.com/thmb/jW7AJdxhmumgojTkEqtOMsThdmQ=/889x667/smart/filters:no_upscale()/__opt__aboutcom__coeus__resources__content_migration__mnn__images__2016__09__gecko-on-sand-e5f7facb4d8e4dc19a81ed03dd166451.jpg')
