@@ -6,24 +6,27 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <link rel="stylesheet" href="/CSS/style.css">
 <title>Document</title>
+<%- include('../partials/header.ejs', {name: user.username}) %>
 </div>
-	<header>	
-		<h1>Animals</h1>
-		<nav>
-			<ul>
+		<header class='animals'>	
+			<h1>Animals</h1>
+			<nav>
+				<ul>
+					<li>
+						<a href="/animals/new">Add a new Animal to the Zoo</a>
+					</li>
+				</ul>
+			</nav>
+		
+	<main>
+		<h2>List of Animals</h2>
+		<ul>
+			<% animals.forEach(animal => { %>
 				<li>
-					<a href="/animals/new">Add a new Animal to the Zoo</a>
+					<a href="/animals/<%= animal._id %>"><%= animal.name %></a>
 				</li>
-			</ul>
-		</nav>
+			<% }) %>
+		</ul>
+	</main>
 	</header>
-<main>
-	<h2>List of Animals</h2>
-	<ul>
-		<% animals.forEach(animal => { %>
-			<li>
-				<a href="/animals/<%= animal._id %>"><%= animal.name %></a>
-			</li>
-		<% }) %>
-	</ul>
-</main>
+</div>

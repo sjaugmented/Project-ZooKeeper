@@ -1,7 +1,7 @@
 const express = require('express');
-require('dotenv').config()
 const connectDB = require('./DB/Connection.js')
 const mongoose = require('mongoose')
+require ('dotenv').config()
 const session = require('express-session')
 const ejsLayouts = require('express-ejs-layouts')
 const methodOverride = require('method-override')
