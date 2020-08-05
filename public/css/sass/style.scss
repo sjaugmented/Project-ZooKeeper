@@ -10,10 +10,12 @@
     font-family: 'poppins', sans-serif;
 }
 .nav {
-    // display: flex;
-    // flex-direction: column;
-    width: 17vw;
-    height: 32vw;
+    display: flexbox;
+    flex-direction: row;
+    width: 300px;
+    
+    justify-content: center;
+    
     background-color: #1b1b1b;
     font-size: 30px;
     filter: drop-shadow(0 4px 4px rgba(0,0,0,0.50));
@@ -69,4 +71,13 @@ p {
 }
 .loginButton {
     margin-left: 60px;
+}
+.user-corner{
+    padding-left: 20px;
+
+}
+.animals {
+    display: flex;
+    justify-content:center;
+    align-items:center;
 }
