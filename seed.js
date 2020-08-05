@@ -9,63 +9,63 @@ const enclosures_list = [
         "lastChecked": "",
         "animals": [],
         "comments": "",
-        "img": ""
+        "img": "https://imgur.com/SUhB9xf"
     }, {
         "name": "Tigers",
         "keeper": "Worf",
         "lastChecked": "",
         "animals": [],
         "comments": "",
-        "img": ""
+        "img": "https://imgur.com/vR5Nl9X"
     }, {
         "name": "Bears",
         "keeper": "Will",
         "lastChecked": "",
         "animals": [],
         "comments": "",
-        "img": ""
+        "img": "https://imgur.com/dl6U8Eb"
     }, {
         "name": "Elephants",
         "keeper": "Data",
         "lastChecked": "",
         "animals": [],
         "comments": "",
-        "img": ""
+        "img": "https://imgur.com/s8Lgca4"
     }, {
         "name": "Wolves",
         "keeper": "Geordi",
         "lastChecked": "",
         "animals": [],
         "comments": "",
-        "img": ""
+        "img": "https://imgur.com/QYCzdxp"
     },  {
         "name": "Reptiles",
         "keeper": "Deanna",
         "lastChecked": "",
         "animals": [],
         "comments": "",
-        "img": ""
+        "img": "https://imgur.com/Iur6cpI"
     },  {
         "name": "Primates",
         "keeper": "Jean-Luc",
         "lastChecked": "",
         "animals": [],
         "comments": "",
-        "img": ""
+        "img": "https://imgur.com/RxIn1q4"
     },  {
         "name": "Birds",
         "keeper": "Wesley",
         "lastChecked": "",
         "animals": [],
         "comments": "",
-        "img": ""
+        "img": "https://imgur.com/DevN12D"
     }, {
         "name": "Dolphins",
         "keeper": "Geordi",
         "lastChecked": "",
         "animals": [],
         "comments": "",
-        "img": ""
+        "img": "https://imgur.com/vJPr97h"
     }   
 ]
 
@@ -85,14 +85,14 @@ class Animal {
 
 //#region Animal Names
 const lions = ["Simba", "Mufasa", "Scar", "Nala", "Georgia", "Nelly"]
-const tigers = ["Sheeba", "Milo", "Otis"]
-const bears = ["Griz", "Bubba", "Eddie", "Saphron"]
-const elephants = ["Dumbo", "Alto", "Othello", "Clarissa"]
-const wolves = ["Baltar", "Perseus", "Doug", "Malik"]
-const geckos = ["Bilbo", "Sam"]
-const primates = ["Jane", "Tarzan", "Kerchak", "George"]
-const birds = ["Tucan", "Sam", "Iago", "Smiley"]
-const dolphins = ["Flipper", "Darwin", "Shimmer", "Dieter"]
+const tigers = ["Sheeba", "Milo", "Otis", "Jimmy", "Tokiko"]
+const bears = ["Griz", "Bubba", "Eddie", "Saphron", "Wally"]
+const elephants = ["Dumbo", "Alto", "Othello", "Clarissa", "Brock"]
+const wolves = ["Baltar", "Perseus", "Doug", "Malik", "Jacob"]
+const reptiles = ["Bilbo", "Sam", "Smithe", "Alexi", "Saruman", "Greg"]
+const primates = ["Jane", "Tarzan", "Kerchak", "George", "Uyen"]
+const birds = ["Tucan", "Sam", "Iago", "Smiley", "Bob", "Stephano"]
+const dolphins = ["Flipper", "Darwin", "Shimmer", "Dieter", "Molly"]
 //#endregion
 
 // TODO: add enclosure indexes
@@ -113,8 +113,8 @@ const animals_list = [
         return new Animal(wolf, 'Wolf', 'Jelani', 'https://img.apmcdn.org/5d713a4d4e43cf212c9a4792aa2f68aa954d1731/square/588c9d-20171019-wolf.jpg', 4)
     }),
     
-    ...geckos.map(gecko => {
-        return new Animal(gecko, 'Gecko', 'Marissa', 'https://www.treehugger.com/thmb/jW7AJdxhmumgojTkEqtOMsThdmQ=/889x667/smart/filters:no_upscale()/__opt__aboutcom__coeus__resources__content_migration__mnn__images__2016__09__gecko-on-sand-e5f7facb4d8e4dc19a81ed03dd166451.jpg', 5)
+    ...reptiles.map(reptile => {
+        return new Animal(reptile, 'Reptile', 'Marissa', 'https://www.treehugger.com/thmb/jW7AJdxhmumgojTkEqtOMsThdmQ=/889x667/smart/filters:no_upscale()/__opt__aboutcom__coeus__resources__content_migration__mnn__images__2016__09__gecko-on-sand-e5f7facb4d8e4dc19a81ed03dd166451.jpg', 5)
     }),
     ...primates.map(primate => {
         return new Animal(primate, 'Primate', 'Seth', 'https://www.sustainability-times.com/wp-content/uploads/thumbs/photo-1540573133985-87b6da6d54a9-38rh6ylbrs98vl3ftqg5xc.jpg', 6)
@@ -155,7 +155,9 @@ const seedDb = async () => {
             console.log(animalToAdd)
             const animalEnclosure = allEnclosures[animals_list[i].enclosureIndex]
             console.log(animalEnclosure)
-            // await allEnclosures[animals_list[i].enclosureIndex].animals.push(animalToAdd)
+            await allEnclosures[animals_list[i].enclosureIndex].animals.push(animalToAdd._id)
+            await allEnclosures[animals_list[i].enclosureIndex].save()
+            
             // console.log(allEnclosures[animals_list[i].enclosureIndex])
         }
     } catch (err) {
