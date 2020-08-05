@@ -1,6 +1,6 @@
+require('dotenv').config()
 const mongoose = require('mongoose')
 const db = require('./models')
-const animals = require('./controllers/animals')
 
 const enclosures_list = [
     {
