@@ -1,3 +1,4 @@
+require('dotenv').config()
 const mongoose = require('mongoose')
 const db = require('./models')
 const animals = require('./controllers/animals')
@@ -89,7 +90,7 @@ const tigers = ["Sheeba", "Milo", "Otis", "Jimmy", "Tokiko"]
 const bears = ["Griz", "Bubba", "Eddie", "Saphron", "Wally"]
 const elephants = ["Dumbo", "Alto", "Othello", "Clarissa", "Brock"]
 const wolves = ["Baltar", "Perseus", "Doug", "Malik", "Jacob"]
-const reptiles = ["Bilbo", "Sam", "Smithe", "Alexi", "Saruman", "Greg"]
+const reptiles = ["Bilbo", "Sammy", "Smithe", "Alexi", "Saruman", "Greg"]
 const primates = ["Jane", "Tarzan", "Kerchak", "George", "Uyen"]
 const birds = ["Tucan", "Sam", "Iago", "Smiley", "Bob", "Stephano"]
 const dolphins = ["Flipper", "Darwin", "Shimmer", "Dieter", "Molly"]
