@@ -7,8 +7,8 @@
     <title>Document</title>
     <%- include('../partials/header.ejs', {name: user.username}) %>
 <body>
-    <h1>Enclosures</h1>
-    <section class="main">
+    <h1 class= 'enclosure'>Enclosures</h1>
+    <section class="enclosureList">
         <ul>
             <% enclosures.forEach(enclosure => { %>
             <li>
@@ -17,6 +17,6 @@
             </li><br>
             <% }) %>
         </ul><br>
-        <a href="/enclosures/new">Add Enclosure</a>
+        
     </section>
 </body>
