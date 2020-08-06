@@ -1,6 +1,7 @@
 require('dotenv').config()
 const mongoose = require('mongoose')
 const db = require('./models')
+const animals = require('./controllers/animals')
 
 const enclosures_list = [
     {
@@ -9,63 +10,63 @@ const enclosures_list = [
         "lastChecked": "",
         "animals": [],
         "comments": "",
-        "img": "https://i.imgur.com/SUhB9xf.jpg"
+        "img": "https://imgur.com/SUhB9xf"
     }, {
         "name": "Tigers",
         "keeper": "Worf",
         "lastChecked": "",
         "animals": [],
         "comments": "",
-        "img": "https://i.imgur.com/vR5Nl9X.jpg"
+        "img": "https://imgur.com/vR5Nl9X"
     }, {
         "name": "Bears",
         "keeper": "Will",
         "lastChecked": "",
         "animals": [],
         "comments": "",
-        "img": "https://i.imgur.com/dl6U8Eb.jpg"
+        "img": "https://imgur.com/dl6U8Eb"
     }, {
         "name": "Elephants",
         "keeper": "Data",
         "lastChecked": "",
         "animals": [],
         "comments": "",
-        "img": "https://i.imgur.com/s8Lgca4.jpg"
+        "img": "https://imgur.com/s8Lgca4"
     }, {
         "name": "Wolves",
         "keeper": "Geordi",
         "lastChecked": "",
         "animals": [],
         "comments": "",
-        "img": "https://i.imgur.com/QYCzdxp.jpg"
+        "img": "https://imgur.com/QYCzdxp"
     },  {
         "name": "Reptiles",
         "keeper": "Deanna",
         "lastChecked": "",
         "animals": [],
         "comments": "",
-        "img": "https://i.imgur.com/Iur6cpI.jpg"
+        "img": "https://imgur.com/Iur6cpI"
     },  {
         "name": "Primates",
         "keeper": "Jean-Luc",
         "lastChecked": "",
         "animals": [],
         "comments": "",
-        "img": "https://i.imgur.com/RxIn1q4.jpg"
+        "img": "https://imgur.com/RxIn1q4"
     },  {
         "name": "Birds",
         "keeper": "Wesley",
         "lastChecked": "",
         "animals": [],
         "comments": "",
-        "img": "https://i.imgur.com/DevN12D.jpg"
+        "img": "https://imgur.com/DevN12D"
     }, {
         "name": "Dolphins",
         "keeper": "Geordi",
         "lastChecked": "",
         "animals": [],
         "comments": "",
-        "img": "https://i.imgur.com/vJPr97h.jpg"
+        "img": "https://imgur.com/vJPr97h"
     }   
 ]
 
@@ -89,7 +90,7 @@ const tigers = ["Sheeba", "Milo", "Otis", "Jimmy", "Tokiko"]
 const bears = ["Griz", "Bubba", "Eddie", "Saphron", "Wally"]
 const elephants = ["Dumbo", "Alto", "Othello", "Clarissa", "Brock"]
 const wolves = ["Baltar", "Perseus", "Doug", "Malik", "Jacob"]
-const reptiles = ["Bilbo", "Sam", "Smithe", "Alexi", "Saruman", "Greg"]
+const reptiles = ["Bilbo", "Sammy", "Smithe", "Alexi", "Saruman", "Greg"]
 const primates = ["Jane", "Tarzan", "Kerchak", "George", "Uyen"]
 const birds = ["Tucan", "Sam", "Iago", "Smiley", "Bob", "Stephano"]
 const dolphins = ["Flipper", "Darwin", "Shimmer", "Dieter", "Molly"]
@@ -150,8 +151,8 @@ const seedDb = async () => {
         const allAnimals = await db.Animal.find({})
         // console.log('allAnimals:') // TODO: remove
         // console.log(allAnimals) // TODO: remove
-        for (let i = 0; i < allAnimals.length; i++) {
-            const animalToAdd = await db.Animal.findOne({'name': allAnimals[i].name})
+        for (let i = 0; i < animals_list.length; i++) {
+            const animalToAdd = await db.Animal.findOne({'name': animals_list[i].name})
             console.log(animalToAdd)
             const animalEnclosure = allEnclosures[animals_list[i].enclosureIndex]
             console.log(animalEnclosure)

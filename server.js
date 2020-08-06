@@ -1,16 +1,15 @@
 // REQUIREMENTS
 const express = require('express');
-//const connectDB = require('./DB/Connection.js')
-//const mongoose = require('mongoose')
-
 require('dotenv').config()
-
 const session = require('express-session')
+const passport = require('passport')
 const ejsLayouts = require('express-ejs-layouts')
 const methodOverride = require('method-override')
 
 const app = express();
 
+// PASSPORT
+require('./config/passport')
 
 // MIDDLEWARE
 app.use(session({
@@ -18,6 +17,8 @@ app.use(session({
     resave: false,
     saveUninitialized: false
 }))
+app.use(passport.initialize())
+app.use(passport.session())
 app.use(express.static('public'))
 app.use(express.urlencoded({
     extended: false
