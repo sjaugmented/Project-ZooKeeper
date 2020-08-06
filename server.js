@@ -2,6 +2,7 @@
 const express = require('express');
 require('dotenv').config()
 const session = require('express-session')
+const passport = require('passport')
 const ejsLayouts = require('express-ejs-layouts')
 const methodOverride = require('method-override')
 
@@ -14,6 +15,8 @@ app.use(session({
     resave: false,
     saveUninitialized: false
 }))
+app.use(passport.initialize())
+app.use(passport.session())
 app.use(express.static('public'))
 app.use(express.urlencoded({
     extended: false
