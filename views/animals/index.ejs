@@ -23,7 +23,7 @@
 		<ul>
 			<% animals.forEach(animal => { %>
 				<li>
-					<div style="background-image: url(<%= animal.img%>)"
+					<div style="background-image: url(<%=animal.img%>)"
 						class="animal-background">
 
 						<a href="/animals/<%= animal._id %>"><%= animal.name %></a>
