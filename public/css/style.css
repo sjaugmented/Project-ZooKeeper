@@ -67,3 +67,19 @@ p {
   display: flex;
   justify-content: center;
   align-items: center; }
+
+  .animal-background {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  width: 200px;
+  background-position: center;
+  background-size: cover;
+  }
+
+  main ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+  }
