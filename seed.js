@@ -151,8 +151,8 @@ const seedDb = async () => {
         const allAnimals = await db.Animal.find({})
         // console.log('allAnimals:') // TODO: remove
         // console.log(allAnimals) // TODO: remove
-        for (let i = 0; i < allAnimals.length; i++) {
-            const animalToAdd = await db.Animal.findOne({'name': allAnimals[i].name})
+        for (let i = 0; i < animals_list.length; i++) {
+            const animalToAdd = await db.Animal.findOne({'name': animals_list[i].name})
             console.log(animalToAdd)
             const animalEnclosure = allEnclosures[animals_list[i].enclosureIndex]
             console.log(animalEnclosure)
