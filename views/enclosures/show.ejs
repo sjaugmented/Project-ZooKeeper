@@ -5,12 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/CSS/style.css">
     <title>Document</title>
+    <%- include('../partials/header.ejs', {name: user.username}) %>
 </head>
 <body>
     <%- include('../partials/header.ejs', {name: user.username}) %>
+    <div class="enclosure-img">
+        <img src="<%= enclosure.img %>" alt="<%= enclosure.name %> Enclosure">
+    </div>
     <h1><%= enclosure.name %> Enclosure</h1>
     <a href="/animals/new">Add Animal</a><br>
-    <img src="<%= enclosure.img %> " alt=""><br>
     <section class="main">
     Keeper In Charge: <%= enclosure.keeper %> <br>
     Last Checked: <%= enclosure.lastChecked %> <br>

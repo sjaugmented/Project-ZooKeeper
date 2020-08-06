@@ -10,10 +10,6 @@ const enclosureSchema = new mongoose.Schema({
         ref: 'Animal'
     }],
     comments: String,
-    // comments: [{
-    //     type: mongoose.Schema.Types.ObjectId,
-    //     ref: 'Comment'
-    // }],
     img: String
 })
 
