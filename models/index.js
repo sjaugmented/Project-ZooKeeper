@@ -6,7 +6,7 @@ const connectionString = 'mongodb://localhost/zookeeper'
 // ATLAS DB CONNECTION
 //const connectionString = process.env.DATABASE_URL
 
-mongoose.connect(connectionString, {
+mongoose.connect(process.env.MONGODB_URI || connectionString, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
