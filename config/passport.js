@@ -1,5 +1,5 @@
 const passport = require('passport')
-const GoogleStrategy = require('passport-google-oauth')
+const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy
 const User = require('../models/user')
 
 // pulled from Brock's OAuth SEI class notes

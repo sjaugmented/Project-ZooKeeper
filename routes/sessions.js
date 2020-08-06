@@ -6,12 +6,15 @@ const passport = require('passport')
 
 // ROUTES
 // LOGIN
-//router.post('/login', sessionsController.login)
+router.post('/login', sessionsController.login)
+
+// OAUTH
 router.get('/auth/google', passport.authenticate(
     'google',
     {scope: ['profile', 'email']}
 ))
 
+// AUTHENTICATE
 router.get('/oauth2callback', passport.authenticate(
     {
         successRedirect: '/',
