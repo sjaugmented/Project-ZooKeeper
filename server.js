@@ -8,6 +8,8 @@ const methodOverride = require('method-override')
 
 const app = express();
 
+// PASSPORT
+require('./config/passport')
 
 // MIDDLEWARE
 app.use(session({
