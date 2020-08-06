@@ -113,6 +113,12 @@ p {
   margin-left: 330px;
   transform: translateY(-600px); }
 
+.enclosureCall {
+  display: flex;
+  justify-content: left;
+  margin-left: 330px;
+  transform: translateY(-550px); }
+
 .addEnclosure {
   justify-content: left;
   margin-left: 330px;

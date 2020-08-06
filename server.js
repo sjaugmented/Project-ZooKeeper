@@ -1,34 +1,24 @@
+// REQUIREMENTS
 const express = require('express');
-const connectDB = require('./DB/Connection.js')
-const mongoose = require('mongoose')
-require ('dotenv').config()
+require('dotenv').config()
 const session = require('express-session')
+const passport = require('passport')
 const ejsLayouts = require('express-ejs-layouts')
 const methodOverride = require('method-override')
+
 const app = express();
-const enclosuresRouter = require('./routes/enclosures')
-const animalsRouter = require('./routes/animals')
-const sessionsRouter = require('./routes/sessions')
 
-
-
-
-// ATLAS DB CONNECTION
-//connectDB();
-// //returning json data
-// app.use(express.json({ extended: false }));
-
-
-// // TODO: remove?
-// app.use('/controllers/animals', require('./controllers/animals'));
-
+// PASSPORT
+require('./config/passport')
 
 // MIDDLEWARE
 app.use(session({
-    secret: "epsteinHangedHimself",
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false
 }))
+app.use(passport.initialize())
+app.use(passport.session())
 app.use(express.static('public'))
 app.use(express.urlencoded({
     extended: false
@@ -36,6 +26,7 @@ app.use(express.urlencoded({
 app.use(methodOverride('_method'))
 app.set('view engine', 'ejs');
 app.use(ejsLayouts)
+
 
 // ROOT ROUTE
 app.get('/', (req, res) => {
@@ -49,11 +40,14 @@ app.get('/', (req, res) => {
 })
 
 // ROUTERS
+const enclosuresRouter = require('./routes/enclosures')
+const animalsRouter = require('./routes/animals')
+const sessionsRouter = require('./routes/sessions')
+
 app.use('/', sessionsRouter)
 app.use('/enclosures', enclosuresRouter)
 app.use('/animals', animalsRouter)
 
 
-
-const PORT = process.env.Port || 3000;
-app.listen(PORT, () => console.log('Server started'));
+const PORT = process.env.PORT;
+app.listen(PORT, () => console.log('Listening on port: ' + process.env.PORT));
