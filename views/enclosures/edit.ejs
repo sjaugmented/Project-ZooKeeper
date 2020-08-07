@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/CSS/style.css">
+    <title>Document</title>
+    <%- include('../partials/header.ejs', {name: user.username}) %>
+</head>
+<body>
+    <h1 class= 'enclosureEditPageName'>Edit Enclosure: <%= enclosure.name %></h1>
+
+    <section class="enclosureEditPage">
+        <form action="/enclosures/<%= enclosure.id %>?_method=PUT" method="POST">
+            Name: <br>
+            <input type="text" name="name" value="<%= enclosure.name %>"><br>
+            Keeper In Charge: <br>
+            <input type="text" name="keeper" value="<%= enclosure.keeper %>" required><br>
+            Last Checked: <br>
+            <input type="date" name="lastChecked" value="<%= enclosure.lastChecked %> "><br>
+            Comments: <br>
+            <textarea name="comments" cols="30" rows="10"><%= enclosure.comments %></textarea><br>
+            Image src: <br>
+            <input type="url" name="img" value="<%= enclosure.img %>"><br>
+            <input type="submit" value="Submit Edits">
+        </form><br>
+        <form action="/enclosures/<%= enclosure.id %>?_method=DELETE" method="POST">
+            <input type="submit" value="Remove Enclosure">
+        </form>
+    </section>
+</body>
+</html>

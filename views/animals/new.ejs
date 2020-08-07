@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/CSS/style.css">
+	<title>Document</title>
+	<%- include('../partials/header.ejs', {name: user.username}) %>
+	<body >
+		<header class='newAnimal'>
+			
+			<h1>Add New Animal</h1>
+		</header>
+		<main class= 'newAnimals'>
+			<form action="/animals" method="post">
+				<select name="enclosureId">
+					<% enclosures.forEach(enclosure => { %>
+						<option value="<%= enclosure._id %>">
+							<%= enclosure.name %> 
+						</option>
+					<% }) %><br>
+				</select><br>
+				Name of the Animal: <br>
+				<input type="text" name="name"/><br>
+				The Animal `s Age: <br>
+				<input type="number" name="age"/><br>
+				Species: <br>
+				<input type="text" name="species"/><br>
+				Last Checked: <br>
+				<input type="date" name="lastChecked"/><br>
+				Last ZooKeeper: <br>
+				<input type="text" name="lastKeeper"/><br>
+				Current Medication: <br>
+				<input type="text" name="currentMeds" /><br>
+				Image: <br>
+				<input type="text" name="img" /><br>
+				Comments:<br>
+				 <textarea name="comments" ></textarea><br>
+				<input type="submit" value="Submit"/>
+			</form>
+		</main>
+	</body>
+</html>

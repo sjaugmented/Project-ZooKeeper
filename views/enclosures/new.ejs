@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/CSS/style.css">
+    <title>Document</title>
+    <%- include('../partials/header.ejs', {name: user.username}) %>
+</head>
+<body>
+    
+    <h1 class= 'enclosureName'>Add New Enclosure</h1>
+    <form class= 'addEnclosure' action="/enclosures" method="POST">
+                Name: <br>
+                <input type="text" name="name"/><br>
+                Keeper In Charge: <br>
+                <input type="text" name="keeper"/><br>
+                Date Created: <br>
+                <input type="date" name="lastChecked"/><br>
+                Notes: <br>
+                <textarea name="comments"/></textarea><br>
+                Image src: <br>
+                <input type="url" name="img"/>
+                <input type="submit" value="Submit"/>
+       </form>
+    </body>
+</html>

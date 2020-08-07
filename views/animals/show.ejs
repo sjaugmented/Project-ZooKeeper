@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/CSS/style.css">
+	<title>Document</title>
+	<%- include('../partials/header.ejs', {name: user.username}) %>
+	<body>
+		<main >
+			<h1 class= 'animalShow'><%= animal.name %> is currently in the </h1>  
+				<br>
+				<% if (enclosure.id) { %>
+				<h1 class= 'enclosureCall'>	<a href="/enclosures/<%= enclosure.id %>"><%= enclosure.name %>
+				<% } else { %>
+				<h1>	UNASSIGNED
+				<% } %> <br> 
+				 <br>Enclosure</a></h1>
+			<div class="animal-img">
+				<img src="<%= animal.img %>" alt="<%= animal.name %> ">
+			</div>
+			<section>
+					<%= animal.body %>
+				</section>
+			<div class= 'animalData'>
+				<form>
+					<ul>
+						Age: <%= animal.age %><br>
+						Species: <%= animal.species %><br>
+						Last Check-Up: <%= animal.lastChecked %><br>
+						By: <%= animal.lastKeeper %><br>
+						Current Meds: <%= animal.currentMeds %><br>
+						Last Diagnosis: <%= animal.comments %><br>
+					</ul>
+			    </form>
+				<section>
+					<form action="/animals/<%= animal._id %>?_method=DELETE" method="POST">
+						<input type="submit" value="Delete Animal">
+					</form>
+				</section>
+				<section>
+					<a href="/animals/<%=animal._id%>/edit">Edit</a>
+				</section>
+				</div>
+		</main>
+	</body>
+</html>

@@ -1,0 +1,180 @@
+// scss variable
+// body{
+//     background-color:white;
+// }
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'poppins', sans-serif;
+}
+.nav {
+    display:inline-block;
+    flex-direction: row;
+    width: 300px;
+    height: 75vh;
+    justify-content: center;
+    background-color: #1b1b1b;
+    font-size: 30px;
+    filter: drop-shadow(0 4px 4px rgba(0,0,0,0.50));
+
+}
+
+div ul li {
+    line-height: 55px;
+    border-bottom: 1px solid red;
+    list-style-type: none;
+
+}
+div ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: 500;
+    padding-left: 40px;
+    display: block;
+    border-left: 3px solid transparent;
+}
+div ul li a:hover {
+    color: cyan;
+    background: 1e1e1e;
+    border-left-color: cyan;
+    transform: translateY(-10%)
+}
+
+h2 {
+    font-size: 40px;
+    margin-left: 45px;
+    margin-top: 0px;
+}
+h1 {
+    margin-left: 10px;
+}
+
+p {
+    font-size: 22px;
+    margin-left: 10px;
+}
+.logo {
+    height: 180px;
+}
+.loginButton {
+    margin-left: 60px;
+}
+.user-corner{
+    padding-left: 20px;
+
+}
+.container {
+    display: flex;
+    justify-content: left;
+    margin-left: 330px;
+    transform: translateY(-600px)
+
+}
+.newAnimal {
+    display: flex;
+    justify-content: left;
+    margin-left: 300px;
+    transform: translateY(-600px)
+}
+.newAnimals {
+    display: flex;
+    justify-content: left;
+    margin-left: 320px;
+    transform: translateY(-550px)
+
+}
+.animalShow {
+    display: flex;
+    justify-content: left;
+    margin-left: 330px;
+    transform: translateY(-600px)
+}
+.animalData {
+    text-decoration: none;
+    justify-content: left;
+    margin-left: 350px;
+    transform: translateY(-550px)
+    
+
+}
+.animalInfo {
+    display: flex;
+    justify-content: left;
+    margin-left: 330px;
+    transform: translateY(-600px)
+
+}
+.animalInfoList {
+    justify-content: left;
+    margin-left: 330px;
+    transform: translateY(-550px)
+
+}
+
+.enclosure {
+    display: flex;
+    justify-content: left;
+    margin-left: 330px;
+    transform: translateY(-600px)
+
+}
+.enclosureList {
+    display: flex;
+    justify-content: left;
+    margin-left: 350px;
+    transform: translateY(-550px)
+
+}
+.enclosureName{
+    display: flex;
+    justify-content: left;
+    margin-left: 330px;
+    transform: translateY(-600px)
+
+}
+.enclosureCall{
+    display: flex;
+    justify-content: left;
+    margin-left: 330px;
+    transform: translateY(-550px)
+}
+.addEnclosure{
+    
+    justify-content: left;
+    margin-left: 330px;
+    transform: translateY(-550px)
+
+}
+.enclosureData {
+    
+    justify-content: left;
+    margin-left: 330px;
+    transform: translateY(-550px)
+
+}
+.enclosureName {
+    
+    justify-content: left;
+    margin-left: 330px;
+    transform: translateY(-600px)
+
+}
+.enclosureEditButton {
+    justify-content: left;
+    margin-left: 330px;
+    transform: translateY(-350px)
+
+}
+.enclosureEditPage {
+    justify-content: left;
+    margin-left: 330px;
+    transform: translateY(-550px)
+
+}
+.enclosureEditPageName {
+    justify-content: left;
+    margin-left: 330px;
+    transform: translateY(-600px)
+
+}
