@@ -9,11 +9,11 @@ const index = (req, res, next) => {
 }
 
 // LOGIN
-const login = (req, res) => {
-    req.session.username = req.body.username
-    req.session.loggedIn = true
-    res.redirect('/')
-}
+// const login = (req, res) => {
+//     req.session.username = req.body.username
+//     req.session.loggedIn = true
+//     res.redirect('/')
+// }
 
 const logout = async (req, res) => {
     try {
@@ -25,4 +25,4 @@ const logout = async (req, res) => {
     }
 }
 
-module.exports = { index, login, logout }
+module.exports = { index, logout }

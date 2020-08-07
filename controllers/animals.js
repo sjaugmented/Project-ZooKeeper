@@ -6,7 +6,7 @@ const newView = async (req, res) => {
             const allEnclosures = await db.Enclosure.find({})
             res.render('animals/new', {
                 enclosures: allEnclosures,
-                user: req.user
+                user: req.user.name
             })
         } catch (err) {
             res.send('Looks like something went wrong...')
@@ -45,7 +45,7 @@ const index = async (req, res) => {
             const foundAnimals = await db.Animal.find({})
             res.render('animals/index', {
                 animals: foundAnimals,
-                user: req.user
+                user: req.user.name
             })
         } catch (err) {
             res.send('Looks like something went wrong...')
@@ -65,14 +65,14 @@ const show = async (req, res) => {
                 res.render('animals/show', {
                     enclosure: foundEnclosure,
                     animal: foundEnclosure.animals[0],
-                    user: req.user
+                    user: req.user.name
                 })
             } else {
                 const foundAnimal = await db.Animal.findById(req.params.id)
                 res.render('animals/show', {
                     enclosure: '',
                     animal: foundAnimal,
-                    user: req.user
+                    user: req.user.name
                 })
             }
         } catch (err) {
@@ -118,7 +118,7 @@ const edit = async (req, res) => {
                     animal: foundAnimalEnclosure.animals[0],
                     enclosures: allEnclosures,
                     animalEnclosure: foundAnimalEnclosure,
-                    user: req.user
+                    user: req.user.name
                 })
             } else {
                 const foundAnimal = await db.Animal.findById(req.params.id)
@@ -126,7 +126,7 @@ const edit = async (req, res) => {
                     animal: foundAnimal,
                     enclosures: allEnclosures,
                     animalEnclosure: null,
-                    user: req.user
+                    user: req.user.name
                 })
             }
         } catch (err) {

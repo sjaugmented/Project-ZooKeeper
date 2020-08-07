@@ -3,7 +3,7 @@ const db = require('../models')
 const newView = (req, res) => {
     if (req.user) {
         res.render('enclosures/new', {
-            user: req.user
+            user: req.user.name
         })
     } else {
         res.redirect('/')
@@ -31,7 +31,7 @@ const index = async (req, res) => {
             const allEnclosures = await db.Enclosure.find({})
             res.render('enclosures/index', {
                 enclosures: allEnclosures,
-                user: req.user
+                user: req.user.name
             })
         } catch (err) {
             res.send('Looks like there was a problem...')
@@ -51,7 +51,7 @@ const show = async (req, res) => {
             // .populate('comments')
             res.render('enclosures/show', {
                 enclosure: foundEnclosure,
-                user: req.user
+                user: req.user.name
             })
         } catch (err) {
             res.send('Looks like there was a problem...')
@@ -89,7 +89,7 @@ const edit = async (req, res) => {
             const foundEnclosure = await db.Enclosure.findById(req.params.id)
             res.render('enclosures/edit', {
                 enclosure: foundEnclosure,
-                user: req.user
+                user: req.user.name
             })
         } catch (err) {
             res.send('Looks like there was a problem...')
