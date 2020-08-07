@@ -1,12 +1,14 @@
 const express = require('express')
 const router = express.Router()
-const sessionsController = require('../controllers/sessions')
+//const sessionsController = require('../controllers/sessions')
 const passport = require('passport')
 
 
 // ROUTES
 // LOGIN
-router.post('/login', sessionsController.login)
+router.post('/login', (req, res) => {
+    res.redirect('/auth/google')
+})
 
 // OAUTH
 router.get('/auth/google', passport.authenticate(
