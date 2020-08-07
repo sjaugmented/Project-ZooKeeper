@@ -46,7 +46,7 @@ p {
   margin-left: 10px; }
 
 .logo {
-  height: 180px; }
+  width: 140px; }
 
 .loginButton {
   margin-left: 60px; }
@@ -58,7 +58,7 @@ p {
   display: flex;
   justify-content: left;
   margin-left: 330px;
-  transform: translateY(-600px); }
+  transform: translateY(-700px); }
 
 .newAnimal {
   display: flex;
@@ -76,13 +76,13 @@ p {
   display: flex;
   justify-content: left;
   margin-left: 330px;
-  transform: translateY(-600px); }
+  transform: translateY(-700px); }
 
 .animalData {
   text-decoration: none;
   justify-content: left;
   margin-left: 350px;
-  transform: translateY(-550px); }
+  transform: translateY(-650px); }
 
 .animalInfo {
   display: flex;
@@ -99,13 +99,13 @@ p {
   display: flex;
   justify-content: left;
   margin-left: 330px;
-  transform: translateY(-600px); }
+  transform: translateY(-700px); }
 
 .enclosureList {
   display: flex;
   justify-content: left;
   margin-left: 350px;
-  transform: translateY(-550px); }
+  transform: translateY(-670px); }
 
 .enclosureName {
   display: flex;
@@ -137,7 +137,7 @@ p {
 .enclosureEditButton {
   justify-content: left;
   margin-left: 330px;
-  transform: translateY(-350px); }
+  transform: translateY(-550px); }
 
 .enclosureEditPage {
   justify-content: left;
@@ -148,3 +148,16 @@ p {
   justify-content: left;
   margin-left: 330px;
   transform: translateY(-600px); }
+
+img {
+  width: 200px; }
+
+.animal-img {
+  justify-content: left;
+  margin-left: 700px;
+  transform: translateY(-650px); }
+
+.list {
+  columns: 3;
+  -webkit-columns: 3;
+  -moz-columns: 3; }

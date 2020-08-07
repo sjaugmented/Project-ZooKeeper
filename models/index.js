@@ -19,5 +19,6 @@ mongoose.connection.on('error', (err) => console.log('Mongoose error:', err))
 
 module.exports = {
     Enclosure: require('./enclosure'),
-    Animal: require('./animal')
+    Animal: require('./animal'),
+    User: require('./user')
 }

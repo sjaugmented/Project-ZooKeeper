@@ -42,12 +42,12 @@ passport.use(new GoogleStrategy({
 
 // called everytime a user logs in
 passport.serializeUser(function (user, done) {
-    return done(null, user._id);
+    done(null, user._id);
 });
 
 // called with every user's request
 passport.deserializeUser(function (id, done) {
     User.findById(id, function (err, user) {
-        return done(err, user);
+        done(err, user);
     });
 })

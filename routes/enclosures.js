@@ -21,6 +21,9 @@ router.delete('/:id', enclosuresController.delete)
 // EDIT
 router.get('/:id/edit', enclosuresController.edit)
 
+// ADD ANIMAL TO ENCLOSURE
+router.get('/:id/add', enclosuresController.newAnimal)
+
 // UPDATE
 router.put('/:id', enclosuresController.update)
 
