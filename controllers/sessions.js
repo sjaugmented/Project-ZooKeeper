@@ -1,6 +1,13 @@
 const db = require('../models')
 
 // ROUTES
+// INDEX
+const index = (req, res, next) => {
+    res.render('home', {
+        user: req.user ? req.user.name : ''
+    });
+}
+
 // LOGIN
 const login = (req, res) => {
     req.session.username = req.body.username
@@ -18,4 +25,4 @@ const logout = async (req, res) => {
     }
 }
 
-module.exports = { login, logout }
+module.exports = { index, login, logout }

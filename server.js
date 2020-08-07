@@ -29,16 +29,16 @@ app.use(ejsLayouts)
 
 
 // ROOT ROUTE
-app.get('/', (req, res) => {
-    if (req.user) {
-        console.log(req.user)
-        res.render('home', {
-            user: req.user
-        })
-    } else {
-        res.render('login.ejs')
-    }
-})
+// app.get('/', (req, res) => {
+//     if (req.user) {
+//         console.log(req.user)
+//         res.render('home', {
+//             user: req.user
+//         })
+//     } else {
+//         res.render('login')
+//     }
+// })
 
 // ROUTERS
 const enclosuresRouter = require('./routes/enclosures')

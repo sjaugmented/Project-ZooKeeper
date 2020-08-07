@@ -1,6 +1,11 @@
 
 <body>
     <h1><a href="/">ZooKeeper</a></h1>
-    <p>Welcome back, <span><%= user.username %></span>!</p>
+    <% if (user) { %>
+        <p>Welcome back, <span><%= user %></span>!</p>
+    <!-- <a href="/logout"><i class="material-icons left">trending_flat</i>Log Out</a> -->
+    <% } else { %>
+    <a href="/auth/google"><i class="material-icons left">vpn_key</i>Login with Google</a>
+    <% } %>
 
 </body>

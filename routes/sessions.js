@@ -1,10 +1,13 @@
 const express = require('express')
 const router = express.Router()
-//const sessionsController = require('../controllers/sessions')
+const sessionsController = require('../controllers/sessions')
 const passport = require('passport')
 
 
 // ROUTES
+// ROOT
+router.get('/', sessionsController.index)
+
 // LOGIN
 router.post('/login', (req, res) => {
     res.redirect('/auth/google')
@@ -18,6 +21,7 @@ router.get('/auth/google', passport.authenticate(
 
 // AUTHENTICATE
 router.get('/oauth2callback', passport.authenticate(
+    'google',
     {
         successRedirect: '/',
         failureRedirect: '/'
