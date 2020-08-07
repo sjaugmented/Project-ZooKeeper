@@ -16,6 +16,7 @@
     background-color: #1b1b1b;
     font-size: 30px;
     filter: drop-shadow(0 4px 4px rgba(0,0,0,0.50));
+    z-index: 1;
 
 }
 
@@ -95,13 +96,11 @@ body {
     display: flex;
     justify-content: left;
     margin-left: 330px;
-    transform: translateY(-700px)
 }
 .animalData {
     text-decoration: none;
     justify-content: left;
     margin-left: 350px;
-    transform: translateY(-650px)
     
 
 }
@@ -109,13 +108,11 @@ body {
     display: flex;
     justify-content: left;
     margin-left: 330px;
-    transform: translateY(-600px)
 
 }
 .animalInfoList {
     justify-content: left;
     margin-left: 330px;
-    transform: translateY(-550px)
 
 }
 
@@ -150,7 +147,6 @@ body {
     display: flex;
     justify-content: left;
     margin-left: 330px;
-    transform: translateY(-550px)
 }
 .addEnclosure{
     
@@ -162,26 +158,22 @@ body {
 .enclosureData {
     justify-content: left;
     margin-left: 330px;
-    transform: translateY(-550px)
 
 }
 
 .enclosureEditButton {
     justify-content: left;
     margin-left: 330px;
-    transform: translateY(-550px)
 
 }
 .enclosureEditPage {
     justify-content: left;
     margin-left: 330px;
-    transform: translateY(-550px)
 
 }
 .enclosureEditPageName {
     justify-content: left;
     margin-left: 330px;
-    transform: translateY(-600px)
 
 }
 
@@ -191,7 +183,6 @@ img {
 .animal-img {
     justify-content: left;
     margin-left: 700px;
-    transform: translateY(-650px)
 
 }
 
@@ -221,12 +212,40 @@ img {
     position: absolute;
     top: 5vh;
     margin-left: 50px;
-    z-index: -1;
+    z-index: 0;
 }
 
 .add-new-enclosure {
     position: absolute;
     top: 5vh;
     margin-left: 50px;
-    z-index: -1;
+    z-index: 0;
+}
+
+.enclosure-show {
+    position: absolute;
+    top: 5vh;
+    margin-left: 50px;
+    z-index: 0;
+}
+
+.animal-show {
+    position: absolute;
+    top: 5vh;
+    margin-left: 50px;
+    z-index: 0;
+}
+
+.edit-enclosure {
+    position: absolute;
+    top: 5vh;
+    margin-left: 50px;
+    z-index: 0;
+}
+
+.edit-animal {
+    position: absolute;
+    top: 5vh;
+    margin-left: 50px;
+    z-index: 0;
 }
