@@ -1,16 +1,27 @@
 const db = require('../models')
 
 // ROUTES
-// LOGIN
-const login = (req, res) => {
-    req.session.username = req.body.username
-    req.session.loggedIn = true
-    res.redirect('/')
+// INDEX
+const index = (req, res, next) => {
+    if (req.user) {
+        res.redirect('/enclosures')
+    } else {
+        res.render('home', {
+            user: req.user ? req.user.name : ''
+        })
+    }
 }
+
+// LOGIN
+// const login = (req, res) => {
+//     req.session.username = req.body.username
+//     req.session.loggedIn = true
+//     res.redirect('/')
+// }
 
 const logout = async (req, res) => {
     try {
-        await req.session.destroy()
+        await req.logout()
         res.redirect('/')
     } catch (err) {
         res.send('Looks like there was a problem...')
@@ -18,4 +29,4 @@ const logout = async (req, res) => {
     }
 }
 
-module.exports = { login, logout }
+module.exports = { index, logout }
