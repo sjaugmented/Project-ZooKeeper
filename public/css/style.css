@@ -113,8 +113,9 @@ body {
   margin-left: 350px;
   transform: translateY(-670px);
   width: 900px;
-  heigh: 900px;
-  overflow: scroll; }
+  height: 900px;
+  overflow: scroll;
+  flex-wrap: wrap; }
 
 .enclosureName {
   display: flex;
@@ -171,8 +172,10 @@ img {
   -webkit-columns: 3;
   -moz-columns: 3; }
 
-.enclosure-img img {
-  width: 25vw; }
-
-.enclosure-img a {
-  text-decoration: none; }
+.enclosure-img {
+  display: flex;
+  margin-bottom: -100px; }
+  .enclosure-img img {
+    width: 20vw; }
+  .enclosure-img a {
+    text-decoration: none; }

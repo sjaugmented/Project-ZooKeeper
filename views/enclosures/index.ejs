@@ -12,12 +12,12 @@
     <section class="enclosureList">
             <% enclosures.forEach(enclosure => { %>
             <div class="enclosure-img">
-                <img src="<%= enclosure.img %>" alt="">
-                <a href="/enclosures/<%= enclosure.id %>"><%= enclosure.name %></a><br>
+                <a href="/enclosures/<%= enclosure.id %>">
+                <img src="<%= enclosure.img %>" alt=""><br>
+                <%= enclosure.name %><br>
                 Occupancy: <%= enclosure.animals.length %>
+                </a>
             </div>
             <% }) %>
-
-        
     </section>
 </body>

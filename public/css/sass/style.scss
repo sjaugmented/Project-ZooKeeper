@@ -136,8 +136,9 @@ body {
     margin-left: 350px;
     transform: translateY(-670px);
     width: 900px;
-    heigh: 900px;
+    height: 900px;
     overflow: scroll;
+    flex-wrap: wrap;
 }
 
 .enclosureName{
@@ -211,8 +212,10 @@ img {
 }
 
 .enclosure-img {
+    display: flex;
+    margin-bottom: -100px;
     img {
-        width: 25vw;
+        width: 20vw;
     }
     a {
         text-decoration: none;
