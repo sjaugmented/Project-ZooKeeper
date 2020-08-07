@@ -77,21 +77,18 @@ body {
 .container {
     display: flex;
     justify-content: left;
-    margin-left: 330px;
-    transform: translateY(-700px)
+    margin-left: 400px;
 
 }
 .newAnimal {
     display: flex;
     justify-content: left;
     margin-left: 300px;
-    transform: translateY(-600px)
 }
 .newAnimals {
     display: flex;
     justify-content: left;
     margin-left: 320px;
-    transform: translateY(-550px)
 
 }
 .animalShow {
@@ -126,26 +123,26 @@ body {
     display: flex;
     justify-content: left;
     margin-left: 330px;
-    transform: translateY(-700px)
-
+    position: absolute;
+    top: 2vh;
 }
 
 .enclosureList {
     display: flex;
     justify-content: left;
     margin-left: 350px;
-    transform: translateY(-670px);
     width: 900px;
     height: 900px;
     overflow: scroll;
     flex-wrap: wrap;
+    position: absolute;
+    top: 10vh;
 }
 
 .enclosureName{
     display: flex;
     justify-content: left;
     margin-left: 330px;
-    transform: translateY(-600px)
 
 }
 
@@ -159,7 +156,6 @@ body {
     
     justify-content: left;
     margin-left: 330px;
-    transform: translateY(-550px)
 
 }
 
@@ -170,13 +166,6 @@ body {
 
 }
 
-.enclosureName {
-    
-    justify-content: left;
-    margin-left: 330px;
-    transform: translateY(-600px)
-
-}
 .enclosureEditButton {
     justify-content: left;
     margin-left: 330px;
@@ -205,6 +194,12 @@ img {
     transform: translateY(-650px)
 
 }
+
+.animal-list {
+    position: absolute;
+    top: 5vh;
+}
+
 .list {
     columns: 3;
     -webkit-columns: 3;
@@ -220,4 +215,18 @@ img {
     a {
         text-decoration: none;
     }
+}
+
+.add-new-animal {
+    position: absolute;
+    top: 5vh;
+    margin-left: 50px;
+    z-index: -1;
+}
+
+.add-new-enclosure {
+    position: absolute;
+    top: 5vh;
+    margin-left: 50px;
+    z-index: -1;
 }
