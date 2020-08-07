@@ -25,6 +25,29 @@ const create = async (req, res) => {
     
 }
 
+const newAnimal = async (req, res) => {
+    if (req.user) {
+        try {
+            // get all enclosures
+            const allEnclosures = await db.Enclosure.find({})
+            // get this enclosure id
+            const foundEnclosure = await db.Enclosure.findById(req.params.id)
+            // render new animal page
+            res.render('enclosures/new-animal', {
+                // pass in enclosure ID for drop down menu
+                enclosures: allEnclosures,
+                thisEnclosure: foundEnclosure,
+                user: req.user.name
+            })
+        } catch (err) {
+            res.send('Looks like there was a problem...')
+            console.error(err)
+        }
+    } else {
+        res.redirect('/')
+    }
+}
+
 const index = async (req, res) => {
     if (req.user) {
         try {
@@ -116,6 +139,7 @@ const update = async (req, res) => {
 
 module.exports = {
     new: newView,
+    newAnimal,
     create,
     index,
     show,
