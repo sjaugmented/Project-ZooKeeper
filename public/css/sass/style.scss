@@ -5,7 +5,7 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: 'poppins', sans-serif;
+    font-family: 'Avenir Next', sans-serif;
 }
 .nav {
     display:inline-block;
@@ -54,6 +54,16 @@ p {
     font-size: 22px;
     margin-left: 10px;
 }
+
+a {
+    color: white;
+}
+
+body {
+        background-color: rgb(58, 119, 121);
+
+}
+
 .logo {
     width: 140px;
 }
@@ -67,21 +77,18 @@ p {
 .container {
     display: flex;
     justify-content: left;
-    margin-left: 330px;
-    transform: translateY(-700px)
+    margin-left: 400px;
 
 }
 .newAnimal {
     display: flex;
     justify-content: left;
     margin-left: 300px;
-    transform: translateY(-600px)
 }
 .newAnimals {
     display: flex;
     justify-content: left;
     margin-left: 320px;
-    transform: translateY(-550px)
 
 }
 .animalShow {
@@ -116,23 +123,29 @@ p {
     display: flex;
     justify-content: left;
     margin-left: 330px;
-    transform: translateY(-700px)
-
+    position: absolute;
+    top: 2vh;
 }
+
 .enclosureList {
     display: flex;
     justify-content: left;
     margin-left: 350px;
-    transform: translateY(-670px)
-
+    width: 900px;
+    height: 900px;
+    overflow: scroll;
+    flex-wrap: wrap;
+    position: absolute;
+    top: 10vh;
 }
+
 .enclosureName{
     display: flex;
     justify-content: left;
     margin-left: 330px;
-    transform: translateY(-600px)
 
 }
+
 .enclosureCall{
     display: flex;
     justify-content: left;
@@ -143,23 +156,16 @@ p {
     
     justify-content: left;
     margin-left: 330px;
-    transform: translateY(-550px)
 
 }
+
 .enclosureData {
-    
     justify-content: left;
     margin-left: 330px;
     transform: translateY(-550px)
 
 }
-.enclosureName {
-    
-    justify-content: left;
-    margin-left: 330px;
-    transform: translateY(-600px)
 
-}
 .enclosureEditButton {
     justify-content: left;
     margin-left: 330px;
@@ -178,6 +184,7 @@ p {
     transform: translateY(-600px)
 
 }
+
 img {
     width: 200px;
 }
@@ -187,8 +194,39 @@ img {
     transform: translateY(-650px)
 
 }
+
+.animal-list {
+    position: absolute;
+    top: 5vh;
+}
+
 .list {
     columns: 3;
     -webkit-columns: 3;
     -moz-columns: 3;
+}
+
+.enclosure-img {
+    display: flex;
+    margin-bottom: -100px;
+    img {
+        width: 20vw;
+    }
+    a {
+        text-decoration: none;
+    }
+}
+
+.add-new-animal {
+    position: absolute;
+    top: 5vh;
+    margin-left: 50px;
+    z-index: -1;
+}
+
+.add-new-enclosure {
+    position: absolute;
+    top: 5vh;
+    margin-left: 50px;
+    z-index: -1;
 }
