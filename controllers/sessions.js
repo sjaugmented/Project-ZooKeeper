@@ -3,9 +3,13 @@ const db = require('../models')
 // ROUTES
 // INDEX
 const index = (req, res, next) => {
-    res.render('home', {
-        user: req.user ? req.user.name : ''
-    });
+    if (req.user) {
+        res.redirect('/enclosures')
+    } else {
+        res.render('home', {
+            user: req.user ? req.user.name : ''
+        })
+    }
 }
 
 // LOGIN
