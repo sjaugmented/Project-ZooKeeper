@@ -11,7 +11,8 @@
   justify-content: center;
   background-color: #1b1b1b;
   font-size: 30px;
-  filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.5)); }
+  filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.5));
+  z-index: 1; }
 
 div ul li {
   line-height: 55px;
@@ -78,25 +79,21 @@ body {
 .animalShow {
   display: flex;
   justify-content: left;
-  margin-left: 330px;
-  transform: translateY(-700px); }
+  margin-left: 330px; }
 
 .animalData {
   text-decoration: none;
   justify-content: left;
-  margin-left: 350px;
-  transform: translateY(-650px); }
+  margin-left: 350px; }
 
 .animalInfo {
   display: flex;
   justify-content: left;
-  margin-left: 330px;
-  transform: translateY(-600px); }
+  margin-left: 330px; }
 
 .animalInfoList {
   justify-content: left;
-  margin-left: 330px;
-  transform: translateY(-550px); }
+  margin-left: 330px; }
 
 .enclosure {
   display: flex;
@@ -124,8 +121,7 @@ body {
 .enclosureCall {
   display: flex;
   justify-content: left;
-  margin-left: 330px;
-  transform: translateY(-550px); }
+  margin-left: 330px; }
 
 .addEnclosure {
   justify-content: left;
@@ -133,31 +129,26 @@ body {
 
 .enclosureData {
   justify-content: left;
-  margin-left: 330px;
-  transform: translateY(-550px); }
+  margin-left: 330px; }
 
 .enclosureEditButton {
   justify-content: left;
-  margin-left: 330px;
-  transform: translateY(-550px); }
+  margin-left: 330px; }
 
 .enclosureEditPage {
   justify-content: left;
-  margin-left: 330px;
-  transform: translateY(-550px); }
+  margin-left: 330px; }
 
 .enclosureEditPageName {
   justify-content: left;
-  margin-left: 330px;
-  transform: translateY(-600px); }
+  margin-left: 330px; }
 
 img {
   width: 200px; }
 
 .animal-img {
   justify-content: left;
-  margin-left: 700px;
-  transform: translateY(-650px); }
+  margin-left: 700px; }
 
 .animal-list {
   position: absolute;
@@ -180,10 +171,34 @@ img {
   position: absolute;
   top: 5vh;
   margin-left: 50px;
-  z-index: -1; }
+  z-index: 0; }
 
 .add-new-enclosure {
   position: absolute;
   top: 5vh;
   margin-left: 50px;
-  z-index: -1; }
+  z-index: 0; }
+
+.enclosure-show {
+  position: absolute;
+  top: 5vh;
+  margin-left: 50px;
+  z-index: 0; }
+
+.animal-show {
+  position: absolute;
+  top: 5vh;
+  margin-left: 50px;
+  z-index: 0; }
+
+.edit-enclosure {
+  position: absolute;
+  top: 5vh;
+  margin-left: 50px;
+  z-index: 0; }
+
+.edit-animal {
+  position: absolute;
+  top: 5vh;
+  margin-left: 50px;
+  z-index: 0; }
