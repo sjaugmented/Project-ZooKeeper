@@ -1,12 +1,12 @@
 const db = require('../models')
 
 const newView = async (req, res) => {
-    if (req.session.loggedIn) {
+    if (req.user) {
         try {
             const allEnclosures = await db.Enclosure.find({})
             res.render('animals/new', {
                 enclosures: allEnclosures,
-                user: req.session
+                user: req.user
             })
         } catch (err) {
             res.send('Looks like something went wrong...')
@@ -18,7 +18,7 @@ const newView = async (req, res) => {
 }
 
 const create = async (req, res) => {
-    if (req.session.loggedIn) {
+    if (req.user) {
         try {
             const createdAnimal = await db.Animal.create(req.body)
             if (req.body.enclosureId) {
@@ -40,12 +40,12 @@ const create = async (req, res) => {
 }
 
 const index = async (req, res) => {
-    if (req.session.loggedIn) {
+    if (req.user) {
         try {
             const foundAnimals = await db.Animal.find({})
             res.render('animals/index', {
                 animals: foundAnimals,
-                user: req.session
+                user: req.user
             })
         } catch (err) {
             res.send('Looks like something went wrong...')
@@ -57,7 +57,7 @@ const index = async (req, res) => {
 }
 
 const show = async (req, res) => {
-    if (req.session.loggedIn) {
+    if (req.user) {
         try {
             const foundEnclosure = await db.Enclosure.findOne({ 'animals': req.params.id })
                 .populate({ path: 'animals', match: { _id: req.params.id } })
@@ -65,14 +65,14 @@ const show = async (req, res) => {
                 res.render('animals/show', {
                     enclosure: foundEnclosure,
                     animal: foundEnclosure.animals[0],
-                    user: req.session
+                    user: req.user
                 })
             } else {
                 const foundAnimal = await db.Animal.findById(req.params.id)
                 res.render('animals/show', {
                     enclosure: '',
                     animal: foundAnimal,
-                    user: req.session
+                    user: req.user
                 })
             }
         } catch (err) {
@@ -85,7 +85,7 @@ const show = async (req, res) => {
 }
 
 const deleteData = async (req, res) => {
-    if (req.session.loggedIn) {
+    if (req.user) {
         try {
             const deletedAnimal = await db.Animal.findByIdAndDelete(req.params.id)
             const foundEnclosure = await db.Enclosure.findOne({ 'animals': req.params.id })
@@ -108,7 +108,7 @@ const deleteData = async (req, res) => {
 }
 
 const edit = async (req, res) => {
-    if (req.session.loggedIn) {
+    if (req.user) {
         try {
             const allEnclosures = await db.Enclosure.find({})
             const foundAnimalEnclosure = await db.Enclosure.findOne({ 'animals': req.params.id })
@@ -118,7 +118,7 @@ const edit = async (req, res) => {
                     animal: foundAnimalEnclosure.animals[0],
                     enclosures: allEnclosures,
                     animalEnclosure: foundAnimalEnclosure,
-                    user: req.session
+                    user: req.user
                 })
             } else {
                 const foundAnimal = await db.Animal.findById(req.params.id)
@@ -126,7 +126,7 @@ const edit = async (req, res) => {
                     animal: foundAnimal,
                     enclosures: allEnclosures,
                     animalEnclosure: null,
-                    user: req.session
+                    user: req.user
                 })
             }
         } catch (err) {
@@ -139,7 +139,7 @@ const edit = async (req, res) => {
 }
 
 const update = async (req, res) => {
-    if (req.session.loggedIn) {
+    if (req.user) {
         try {
             const updatedAnimal = await db.Animal.findByIdAndUpdate(req.params.id, req.body, { new: true })
             const foundEnclosure = await db.Enclosure.findOne({ 'animals': req.params.id })

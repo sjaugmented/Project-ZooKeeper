@@ -30,9 +30,10 @@ app.use(ejsLayouts)
 
 // ROOT ROUTE
 app.get('/', (req, res) => {
-    if (req.session.loggedIn) {
+    if (req.user) {
+        console.log(req.user)
         res.render('home', {
-            user: req.session
+            user: req.user
         })
     } else {
         res.render('login.ejs')

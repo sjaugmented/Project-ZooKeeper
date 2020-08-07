@@ -1,9 +1,9 @@
 const db = require('../models')
 
 const newView = (req, res) => {
-    if (req.session.loggedIn) {
+    if (req.user) {
         res.render('enclosures/new', {
-            user: req.session
+            user: req.user
         })
     } else {
         res.redirect('/')
@@ -11,7 +11,7 @@ const newView = (req, res) => {
 }
 
 const create = async (req, res) => {
-    if (req.session.loggedIn) {
+    if (req.user) {
         try {
             await db.Enclosure.create(req.body)
             res.redirect('/enclosures')
@@ -26,12 +26,12 @@ const create = async (req, res) => {
 }
 
 const index = async (req, res) => {
-    if (req.session.loggedIn) {
+    if (req.user) {
         try {
             const allEnclosures = await db.Enclosure.find({})
             res.render('enclosures/index', {
                 enclosures: allEnclosures,
-                user: req.session
+                user: req.user
             })
         } catch (err) {
             res.send('Looks like there was a problem...')
@@ -44,14 +44,14 @@ const index = async (req, res) => {
 }
 
 const show = async (req, res) => {
-    if (req.session.loggedIn) {
+    if (req.user) {
         try {
             const foundEnclosure = await db.Enclosure.findById(req.params.id)
                 .populate('animals')
             // .populate('comments')
             res.render('enclosures/show', {
                 enclosure: foundEnclosure,
-                user: req.session
+                user: req.user
             })
         } catch (err) {
             res.send('Looks like there was a problem...')
@@ -63,7 +63,7 @@ const show = async (req, res) => {
 }
 
 const deleteData = async (req, res) => {
-    if (req.session.loggedIn) {
+    if (req.user) {
         try {
             // attempt at only deleting if animals array is empty
             const enclosureToDelete = await db.Enclosure.findById(req.params.id)
@@ -84,12 +84,12 @@ const deleteData = async (req, res) => {
 }
 
 const edit = async (req, res) => {
-    if (req.session.loggedIn) {
+    if (req.user) {
         try {
             const foundEnclosure = await db.Enclosure.findById(req.params.id)
             res.render('enclosures/edit', {
                 enclosure: foundEnclosure,
-                user: req.session
+                user: req.user
             })
         } catch (err) {
             res.send('Looks like there was a problem...')
@@ -101,7 +101,7 @@ const edit = async (req, res) => {
 }
 
 const update = async (req, res) => {
-    if (req.session.loggedIn) {
+    if (req.user) {
         try {
             await db.Enclosure.findByIdAndUpdate(req.params.id, req.body)
             res.redirect('/enclosures/' + req.params.id)
