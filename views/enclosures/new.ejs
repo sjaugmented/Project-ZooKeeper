@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/CSS/style.css">
+    <link rel="stylesheet" href="/css/style.css">
     <title>Document</title>
     <%- include('../partials/header.ejs', {name: user.username}) %>
 </head>
 <body>
     <script>0</script>
+    <section class="add-new-enclosure">
     <h1 class= 'enclosureName'>Add New Enclosure</h1>
     <form class= 'addEnclosure' action="/enclosures" method="POST">
                 Name: <br>
@@ -23,5 +24,6 @@
                 <input type="url" name="img"/>
                 <input type="submit" value="Submit"/>
        </form>
+    </section>
     </body>
 </html>
