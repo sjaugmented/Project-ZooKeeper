@@ -5,7 +5,7 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: 'poppins', sans-serif;
+    font-family: 'Avenir Next', sans-serif;
 }
 .nav {
     display:inline-block;
@@ -54,6 +54,16 @@ p {
     font-size: 22px;
     margin-left: 10px;
 }
+
+a {
+    color: white;
+}
+
+body {
+        background-color: rgb(58, 119, 121);
+
+}
+
 .logo {
     width: 140px;
 }
@@ -119,13 +129,17 @@ p {
     transform: translateY(-700px)
 
 }
+
 .enclosureList {
     display: flex;
     justify-content: left;
     margin-left: 350px;
-    transform: translateY(-670px)
-
+    transform: translateY(-670px);
+    width: 900px;
+    heigh: 900px;
+    overflow: scroll;
 }
+
 .enclosureName{
     display: flex;
     justify-content: left;
@@ -133,6 +147,7 @@ p {
     transform: translateY(-600px)
 
 }
+
 .enclosureCall{
     display: flex;
     justify-content: left;
@@ -146,13 +161,14 @@ p {
     transform: translateY(-550px)
 
 }
+
 .enclosureData {
-    
     justify-content: left;
     margin-left: 330px;
     transform: translateY(-550px)
 
 }
+
 .enclosureName {
     
     justify-content: left;
@@ -178,6 +194,7 @@ p {
     transform: translateY(-600px)
 
 }
+
 img {
     width: 200px;
 }
@@ -191,4 +208,13 @@ img {
     columns: 3;
     -webkit-columns: 3;
     -moz-columns: 3;
+}
+
+.enclosure-img {
+    img {
+        width: 25vw;
+    }
+    a {
+        text-decoration: none;
+    }
 }

@@ -10,14 +10,14 @@
     <script>0</script>
     <h1 class= 'enclosure'>Enclosures</h1>
     <section class="enclosureList">
-        <ul>
             <% enclosures.forEach(enclosure => { %>
-            <li>
+            <div class="enclosure-img">
+                <img src="<%= enclosure.img %>" alt="">
                 <a href="/enclosures/<%= enclosure.id %>"><%= enclosure.name %></a><br>
                 Occupancy: <%= enclosure.animals.length %>
-            </li><br>
+            </div>
             <% }) %>
-        </ul><br>
+
         
     </section>
 </body>
