@@ -16,7 +16,10 @@
 			<form action="/animals" method="post">
 				<select name="enclosureId">
 					<% enclosures.forEach(enclosure => { %>
-						<option value="<%= enclosure._id %>">
+						<option value="<%= enclosure._id %>"
+							<% if (enclosure.id.toString() === thisEnclosure.id.toString()) { %>
+								selected 
+							<% } %>>
 							<%= enclosure.name %> 
 						</option>
 					<% }) %><br>

@@ -10,18 +10,15 @@
     <main>
         <br>
         <section>
-            <h2>Login</h2>
-            <form action="/login" method="POST">
-                <div>
-                    <label for="username">Username:</label>
-                    <input type="text" name="username" required>
-                </div>
-                <div>
-                    <label for="password">Password: </label>
-                    <input type="password" name="password" required>
-                </div>
-                <input class= 'loginButton' type="submit" value="Login">
-            </form>
+            <ul class="right">
+                <li>
+                    <% if (user) { %>
+                    <a href="/logout"><i class="material-icons left">trending_flat</i>Log Out</a>
+                    <% } else { %>
+                    <a href="/auth/google"><i class="material-icons left">vpn_key</i>Login with Google</a>
+                    <% } %>
+                </li>
+            </ul>
         </section>
     </main>
 </body>

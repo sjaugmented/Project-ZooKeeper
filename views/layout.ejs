@@ -5,16 +5,17 @@
 <link rel='stylesheet' href='css/style.css'>
 </head>
 <body>
-  
+    <script>0</script>
     <div class="nav">
             <ul>
                  <img class="logo" src="/assets/seilogo.png"/>
-                 
                  <li><a href="/enclosures">Enclosures</a></li>
                  <li><a href="/enclosures/new">Add New Enclosure</a></li>
                  <li><a href="/animals">Animals</a></li>
                  <li><a href="/animals/new">Add New Animal</a></li>
-                 <li><a href="/logout">Logout</a></li>    
+                 <% if (user) { %> 
+                 <li><a href="/logout">Logout</a></li>
+                 <% } %>     
             </ul>   
     </div>
     <%- body %>
