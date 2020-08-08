@@ -29,7 +29,6 @@ router.get('/oauth2callback', passport.authenticate(
 ))
 
 // DESTROY
-//router.get('/logout', sessionsController.logout)
 router.get('/logout', (req, res) => {
     req.logout()
     res.redirect('/')
