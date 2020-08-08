@@ -12,13 +12,7 @@ const index = (req, res, next) => {
     }
 }
 
-// LOGIN
-// const login = (req, res) => {
-//     req.session.username = req.body.username
-//     req.session.loggedIn = true
-//     res.redirect('/')
-// }
-
+// LOGOUT
 const logout = async (req, res) => {
     try {
         await req.logout()
